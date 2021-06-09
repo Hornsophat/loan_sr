@@ -476,6 +476,7 @@ return [
     'booking_property' => 'Booking Property',
     'expire_date' => 'Expire Date',
     'available' => 'Available',
+    'closed' => 'Cancel',
     'booked' => 'Booked',
     'sold' => 'Sold',
     'error_booking' => 'Booking Failed!!!',

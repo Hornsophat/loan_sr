@@ -114,8 +114,10 @@
                                                     <td>
                                                         @if($value->status==1)
                                                         {!! "<span class='rounded p-1 badge-primary'>".__('item.available')."</span>" !!}
+                                                        @elseif($value->status==4)
+                                                        {!! "<span class='rounded p-1 badge-danger'>".__('item.closed')."</span>" !!}
                                                         @elseif($value->status==2)
-                                                        <a href="{{ route('sale_property.view_sale', ['property'=>$value]) }}"><span class='rounded p-1 badge-danger'>{{ __('item.sold') }}</span></a>
+                                                        <a href="{{ route('sale_property.view_sale', ['property'=>$value]) }}"><span class='rounded p-1 badge-success'>{{ __('item.sold') }}</span></a>
                                                         @elseif($value->status==3)
                                                         <a onclick="view_booking({{ $value->id }})" data-toggle="modal" data-target="#bookingModal" class='property_booked'><span class='rounded p-1 badge-warning'>{{ __('item.booked') }}</span></a>
                                                         @endif

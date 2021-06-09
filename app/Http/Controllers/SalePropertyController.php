@@ -1844,7 +1844,7 @@ class SalePropertyController extends Controller
                                     $property->status = Config::get('app.property_status_booked');
                                     $reservation->save();
                                 }else{
-                                    $property->status=Config::get('app.property_status_available');
+                                    $property->status=Config::get('app.property_status_closed');
                                 }
                                 $sale->status = 'cancel';
                             }

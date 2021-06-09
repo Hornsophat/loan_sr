@@ -17,6 +17,7 @@ return [
     'property_status_available' => 1,
     'property_status_booked' => 3,
     'property_status_sold' => 2,
+    'property_status_closed' => 4,
 
     //payment status
     'payment_status_pending' => 'pending',
