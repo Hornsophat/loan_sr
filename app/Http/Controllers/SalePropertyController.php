@@ -35,8 +35,8 @@ class SalePropertyController extends Controller
     function booking(Request $request, Property $property){
     	if(!Auth::user()->can('booking-propery') && !AppHelper::checkAdministrator())
             return view('back-end.common.no-permission');
-        if($property->status!=Config::get('app.property_status_available')){
-        	return redirect()->back()->with('error-message', __('item.error_booking'));
+        if($property->status!=Config::get('app.property_status_available') && $property->status!=Config::get('app.property_status_closed')){
+                return redirect()->back()->with('error-message', __('item.error_booking')); 
         }
         if($request->method() == 'GET'){
         	$payment_transaction = PaymentTransaction::orWhereNull('deleted_at')->latest()->first();
@@ -269,7 +269,23 @@ class SalePropertyController extends Controller
     function print_receipt_booking($id){
     	if(!Auth::user()->can('booking-propery') && !AppHelper::checkAdministrator())
             return view('back-end.common.no-permission');
+
         $reservation = Reservation::find($id);
+        $address = DB::table('customers')
+        ->select('customers.*',
+            'prov.province_kh_name as prov_name',
+            'com.commune_namekh as com_kh',
+            'vil.village_namekh as vil_kh',
+            'dis.district_namekh as dis_kh'
+            
+        )
+       
+        ->join('provinces as prov', 'customers.province', '=', 'prov.province_id')
+        ->join('communes as com', 'customers.commune', '=', 'com.com_id')
+        ->join('villages as vil', 'customers.village', '=', 'vil.vill_id')
+        ->join('districts as dis', 'customers.district', '=', 'dis.dis_id')
+        ->where('customers.id', '=', $reservation->customer_id)
+        ->first();
         if(!$reservation){
         	return redirect()->back()->with('error-message', __('item.not_found'));
         }
@@ -281,7 +297,7 @@ class SalePropertyController extends Controller
         $project=Project::find($reservation->project_id);
         $created_by = User::find($reservation->created_by);
         $payment_transaction = PaymentTransaction::where('reservation_id', '=', $reservation->id)->first();
-        return view('back-end.sale_property.receipt_booking', compact('property', 'reservation', 'customer', 'project', 'created_by', 'payment_transaction'));
+        return view('back-end.sale_property.receipt_booking', compact('address','property', 'reservation', 'customer', 'project', 'created_by', 'payment_transaction'));
     }
      function uploadPdf(Request $request)
     {
@@ -1810,18 +1826,18 @@ class SalePropertyController extends Controller
         if(!Auth::user()->can('cancel-sale') && !AppHelper::checkAdministrator())
             return view('back-end.common.no-permission');
         $data['message'] =0;
-        if(!empty($request->sale)){
+        // if(!empty($request->sale)){
             $sale = SaleItem::find($request->sale);
-            if(!empty($sale)){
+            // if(!empty($sale)){
                 $loan_first = Loan::where('sale_id', '=', $sale->id)
                 ->whereNull('loan_type')->first();
                 $sale_pay_num = PaymentTransaction::where([
                     ['sale_id', '=', $sale->id],
                     ['is_cancel', '=', 0]
                 ])->count();
-                if(!empty($loan_first) && $sale->status!='completed' && $sale_pay_num==0){
+                // if(!empty($loan_first) && $sale->status!='completed' && $sale_pay_num==0){
                     $payment_schedule =  PaymentSchedule::where('loan_id', '=', $loan_first->id)->first();
-                    if(!empty($payment_schedule)){
+                    // if(!empty($payment_schedule)){
                         $this_order_transaction = DB::table('payment_transactions')->where([
                             ['payment_schedule_id', '=', $payment_schedule->id],
                             ['is_cancel', '<>', 1]
@@ -1831,7 +1847,7 @@ class SalePropertyController extends Controller
                             ['status', '<>', Config::get('app.loan_status_cancel')]
                         ])
                         ->whereNotNull('loan_type')->get()->count();
-                        if($loans<=0 && $this_order_transaction<=0){
+                        // if($loans<=0 && $this_order_transaction<=0){
                             // this cancel sale
                             $property = Property::find($sale->property_id);
                             if (!empty($property)) {
@@ -1869,11 +1885,11 @@ class SalePropertyController extends Controller
                             $sale->updated_by = Auth::id();
                             $sale->save();
                             $data['message'] = 1;
-                        }
-                    }
-                }
-            }
-        }
+                        // }
+                    // }
+                // }
+            // }
+        // }
         return $data;
     }
     function has_next_loan($loan_id){

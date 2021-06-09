@@ -283,7 +283,7 @@
 	    'edit_property'                	=> 'កែប្រែទ្រព្យសម្បត្តិ',	
 	    'property_detail'              	=> 'ពត៌មានអំពីអចលនទ្រព្យ',
     	'view_property'                	=> 'មើលទ្រព្យសម្បត្តិ',    
-	    'property_type'                	=> 'ប្រភេទផ្ទះ',
+	    'property_type'                	=> 'ប្រភេទអចលទ្រព្យ',
 	    'zipcode'                      	=> 'លេខ​កូដ​តំបន់',
 	    'bedroom'                      	=> 'បន្ទប់គេង',
 	    'bathroom'                     	=> 'បន្ទប់ទឹក',

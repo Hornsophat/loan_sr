@@ -1,3 +1,5 @@
+
+
 @php
 	use App\Helpers\AppHelper;
 @endphp
@@ -271,21 +273,53 @@
 													<ul>
 														<li><b>&emsp;គូភាគីបានព្រមព្រៀងគ្នាទូទាត់ប្រាក់ថ្លៃលក់ទិញជាដំណាក់កាលដូចខាងក្រោម៖</b>
 														</li>
-														<tr>
-															<td align="left" style="font-family: 'Khmer OS system">
-														&emsp;&emsp;​​​​​​​​​​ <b>៤.១.១. ដំណាក់កាលទី១</b>  ៖ ភាគី “ខ” យល់ព្រមបង់ប្រាក់កក់ចំនួន $  <b>{{  $sale->deposit }}</b><b>(​{{ AppHelper::khNumberWord( $sale->deposit) }}) ដុល្លារអាមេរិកគត់</b> ឲ្យទៅភាគី “ក” នៅថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime($sale->created_at)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime($sale->created_at)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($sale->created_at)))}}</b>។
-															</td>
-														</tr>
-														<tr>
-															<td align="left" style="font-family: 'Khmer OS system">
-														&emsp;&emsp; <b>៤.១.២. ដំណាក់កាលទី២</b> ៖ ភាគី “ខ” យល់ព្រមបង់ប្រាក់បន្ថែមចំនួន​ $ <b>{{$loan->loan_amount  }}</b> <b>(​{{ AppHelper::khNumberWord($loan->loan_amount) }}) ដុល្លារអាមេរិកគត់</b> ឲ្យទៅភាគី “ក” នៅថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime($loan->first_pay_date)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime($loan->first_pay_date)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($loan->first_pay_date)))}}</b>។
-															</td>
-														</tr>
-														<tr>
-															<td align="left" style="font-family: 'Khmer OS system">
-														&emsp;&emsp; <b>៤.១.៣.	ដំណាក់កាលទី៣</b> ៖ ភាគី “ខ” នឹងបង់ប្រាក់ដែលនៅសល់បង្រ្គប់ចំនួន $ <b>{{ $last_balance  }} </b>  <b>(​{{ AppHelper::khNumberWord( $last_balance) }}) ដុល្លារអាមេរិកគត់</b> ឲ្យទៅភាគី “ក” នៅថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime($effectiveDate)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime($effectiveDate)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($effectiveDate)))}}</b> ហើយភាគី “ក” ត្រូវបញ្ចប់ការសាងសង់ និងកាត់ឈ្មោះផ្ទេរកម្មសិទ្ធិរួចរាល់ជាស្ថាពរឲ្យទៅភាគី“ខ” ហើយភាគី “ក” ត្រូវប្រគល់ប័ណ្ណកម្មសិទ្ធិដែលបានផ្ទេរសិទ្ធិទៅភាគី “ខ” រួចរាល់នោះ ឲ្យទៅភាគី “ខ” ។
-															</td>
-														</tr>
+														
+														<?php 
+														$loan_count = count($loans);
+														if($sale->deposit<=0)
+														{
+															$i = 0;
+														}else{
+		
+															
+															$i = 1;
+															?>
+																<tr>
+																	<td align="left" style="font-family: 'Khmer OS system">
+																&emsp;&emsp;​​​​​​​​​​ <b>៤.១.{{AppHelper::khMultipleNumber($i)}}. ដំណាក់កាលទី {{AppHelper::khMultipleNumber($i)}}</b>  ៖ ភាគី “ខ” យល់ព្រមបង់ប្រាក់កក់ចំនួន $  <b>{{  $sale->deposit }}</b><b>(​{{ AppHelper::khNumberWord( $sale->deposit) }}) ដុល្លារអាមេរិកគត់</b> ឲ្យទៅភាគី “ក” នៅថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime($sale->created_at)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime($sale->created_at)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($sale->created_at)))}}</b>។
+																	</td>
+																</tr>
+															<?php
+														}
+														$loan_count = $loan_count+$i;
+														
+														foreach($loans as $loan)
+														{
+															$i++;
+															if($loan_count>$i)
+															{
+																?>
+																<tr>
+																	<td align="left" style="font-family: 'Khmer OS system">
+																&emsp;&emsp; <b>៤.១.{{AppHelper::khMultipleNumber($i)}}. ដំណាក់កាលទី {{AppHelper::khMultipleNumber($i)}}</b> ៖ ភាគី “ខ” យល់ព្រមបង់ប្រាក់បន្ថែមចំនួន​ $ <b>{{$loan->loan_amount  }}</b> <b>(​{{ AppHelper::khNumberWord($loan->loan_amount) }}) ដុល្លារអាមេរិកគត់</b> ឲ្យទៅភាគី “ក” នៅថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime($loan->loan_date)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime($loan->loan_date)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($loan->loan_date)))}}</b>។
+																	</td>
+																</tr>
+															<?php
+															}else{
+																?>
+																	<tr>
+																		<td align="left" style="font-family: 'Khmer OS system">
+																	&emsp;&emsp; <b>៤.១.{{AppHelper::khMultipleNumber($i)}}.	ដំណាក់កាលទី {{AppHelper::khMultipleNumber($i)}}</b> ៖ ភាគី “ខ” នឹងបង់ប្រាក់ដែលនៅសល់បង្រ្គប់ចំនួន $ <b>{{ $loan->loan_amount  }} </b>  <b>(​{{ AppHelper::khNumberWord( $last_balance) }}) ដុល្លារអាមេរិកគត់</b> ឲ្យទៅភាគី “ក” នៅថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime($loan->loan_date)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime($loan->loan_date)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($loan->loan_date)))}}</b> ហើយភាគី “ក” ត្រូវបញ្ចប់ការសាងសង់ និងកាត់ឈ្មោះផ្ទេរកម្មសិទ្ធិរួចរាល់ជាស្ថាពរឲ្យទៅភាគី“ខ” ហើយភាគី “ក” ត្រូវប្រគល់ប័ណ្ណកម្មសិទ្ធិដែលបានផ្ទេរសិទ្ធិទៅភាគី “ខ” រួចរាល់នោះ ឲ្យទៅភាគី “ខ” ។
+																		</td>
+																	</tr>
+																<?php
+															}
+															
+
+														}
+														?>
+														
+														
 														<tr>
 															<td><b>រាល់ការបង់ប្រាក់ និងទទួលប្រាក់ភាគី “ក” នឹងចេញវិក័យបត្រជូនភាគី “ខ” ។</b></td>
 														</tr>
@@ -642,6 +676,9 @@
 																<td align="left"​ ប្រការ៣: អំពីការបន្ថែមសម្ភារៈ</td>
 															</tr>
 															<tr>
+																<td align="left"​>&emsp;&emsp;&emsp; - នៅក្នុងទិញលក់នេះភាគី”ក”បានបន្ថែមនូវសម្ភារៈដូចខាងក្រោម៖</td>
+															</tr>
+															<tr>
 																<td align="left"​>-ថែមជូន <b>{{$sale->product_first}}</b></td>
 															</tr>
 															<tr>
@@ -657,13 +694,6 @@
 																<td align="left"​>-ថែមជូនជាពិសេសសម្រាប់បន្ទប់មេគ្រួសារមានដូចជា៖ <b>{{$sale->product_five}}</b> </td>
 															</tr>
 															<tr>
-																<td align="left"​>&emsp;&emsp;&emsp; - នៅក្នុងទិញលក់នេះភាគី”ក”បានបន្ថែមនូវសម្ភារៈដូចខាងក្រោម</td>
-															</tr>
-															<tr>
-																<td align="left"​>&emsp;&emsp;&emsp;&emsp;កិច្ចព្រមព្រៀងនេះគ្រប់គ្រងដោយច្បាប់នៃព្រះរាជាណាចក្រកម្ពុជា។</td>
-															</tr>
-
-															<tr>
 																<td align="left"​><b>ប្រការ៤: អវសាន្តនៃកិច្ចសន្យា</b></td>
 															</tr>
 															<tr>
@@ -672,6 +702,10 @@
 															<tr>
 																<td align="left"​> &emsp;&emsp;កិច្ចសន្យានេះបានចូលជាធរមាន និងមានសុពលភាពចាប់ពីថ្ងៃផ្ដិតមេដៃស្ដាំនេះតទៅ និងបានធ្វើឡើងជា២ច្បាប់ជាភាសាខ្មែរហើយមានតម្លៃស្មើគ្នាចំពោះមុខច្បាប់។</td>
 															</tr>
+															<tr>
+																<td align="left"​>&emsp;&emsp;&emsp;&emsp;កិច្ចព្រមព្រៀងនេះគ្រប់គ្រងដោយច្បាប់នៃព្រះរាជាណាចក្រកម្ពុជា។</td>
+															</tr>
+
 															<tr>
 																<td align="right"​>ធ្វើនៅសៀមរាប ថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime($sale->created_at)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime($sale->created_at)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($sale->created_at)))}}</b></td>
 															</tr>

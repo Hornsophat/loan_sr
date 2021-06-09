@@ -574,13 +574,7 @@ class SaleController extends Controller
        
         $properties = '';
         $sale_details =   [];
-        // foreach ($sale_details as $key => $value) {
-        //     if($key==0){
-        //         $properties = $value->item_name;
-        //     }else{
-        //         $properties = $properties.','.$value->item_name;
-        //     }
-        // }
+        
         if($sale){
             $property_type = '';
             $property_type_group ='';
@@ -597,6 +591,7 @@ class SaleController extends Controller
             }
             $payments = Payment::where('sale_id', '=', $sale->id)->get();
             $loan = DB::table('loans')->where('sale_id',$sale->id)->first();
+            $loans = DB::table('loans')->where(array('sale_id'=>$sale->id,['status','!=',"cancel"]))->get();
             $payment_schedule = DB::table('payment_schedules')->where('loan_id',$loan->id)->first();
 
             //merge custom child
@@ -618,7 +613,7 @@ class SaleController extends Controller
                 }
             }
             
-            return view('back-end.sale.contractLand', compact('payment_schedule','sale','child_item','sale_details','property_type', 'property_type_group', 'property_type_extension', 'land', 'properties', 'payments','loan'));
+            return view('back-end.sale.contractLand', compact('loans','payment_schedule','sale','child_item','sale_details','property_type', 'property_type_group', 'property_type_extension', 'land', 'properties', 'payments','loan'));
         }
         else{
             return redirect()->back()->with('message', 'Not Found!');

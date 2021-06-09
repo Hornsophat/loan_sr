@@ -144,6 +144,9 @@
                                                                 @if($value->status==1)
                                                                 <a class="dropdown-item" href="{{ route('sale_property.booking',['property'=>$value]) }}"><i class="fa  fa-book"></i>{{trans('item.property_book')}}</a>
                                                                 @endif
+                                                                @if($value->status==4)
+                                                                <a class="dropdown-item" href="{{ route('sale_property.booking',['property'=>$value]) }}"><i class="fa  fa-book"></i>{{trans('item.property_book')}}</a>
+                                                                @endif
                                                             @endif
                                                             @if(Auth::user()->can('add-property') || $isAdministrator)
                                                             <a class="dropdown-item" href="{{ URL::to('property/' . $value->id . '/duplicate') }}"><i class="fa fa-plus"></i>{{trans('item.duplicate_copy')}}</a>

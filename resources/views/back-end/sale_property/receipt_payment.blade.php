@@ -163,14 +163,14 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="table-responsive">
-                    <div class="content-printer clearfix" id="table_print" style="background: #a59b9b1f">
+                    <div class="content-printer clearfix" id="table_print" style="background: #0000001f">
                         <div class="header">
                             <div class="logo">
                                 <img src="{{Setting::get('LOGO')}}" width="100%" height="100%">
                             </div>
                             <div class="title">
-                                <p style="margin-bottom: 0; font-family: Khmer OS Muol Light;font-size:25px">ក្រុម​ ហ៊ុន រដ្ឋ ស៊ីង អចលនទ្រព្យ</p>
-                                <p class="p-border-bottom" style="display:inline-block;padding-bottom:1px;font-family:Time New Roman;font-size:28px;font-weight: bold;">RothSing Real Estate Co,ltd</p>
+                                <p style="margin-bottom: 0; font-family: Khmer OS Muol Light;font-size:23px">ក្រុម​ ហ៊ុន រដ្ឋ ស៊ីង អចលនទ្រព្យ</p>
+                                <p class="p-border-bottom" style="display:inline-block;font-family:Time New Roman;font-size:25px;font-weight: bold;">RothSing Real Estate Co,ltd</p>
                             </div>
                             <div class="title">
                                 <p><span style="font-family: Khmer OS Muol Light;">ប័ណ្ណទទួលប្រាក់ / RECEIPT</span></p>
@@ -247,7 +247,7 @@
                                <span class="f-kh" style="min-width:120px">លេខកិច្ចសន្យា / Agreement No:</span>
                                 <span class="horizontal_dotted_lines" style=";min-width: 80px">&nbsp;00{{$loan->sale_id}}</span><br>    
                                <span class="f-kh">អាស័យដ្ឋានបច្ចុប្បន្ន​ &nbsp;:</span>
-                               <span class="horizontal_dotted_lines" style=";font-size:15px;min-width: 170px">&nbsp;ផ្លូវលេខ <b>{{ $customer->street_number }}</b> ផ្ទះលេខ <b>{{$customer->house_number}}</b>  ភូមិ <b> {{$address-> dis_kh}}  </b> ឃុំ/សង្កាត់ <b>{{$address->com_kh}}</b>  ​ស្រុក/ខណ្ឌ <b>{{$address->dis_kh }}</b> រាជធានី/ខេត្ត <b>{{$address->prov_name}}</b>  </span>
+                               <span class="horizontal_dotted_lines" style="font-size:15px;min-width: 170px">&nbsp;ផ្លូវលេខ <b>{{ $customer->street_number }}</b> ផ្ទះលេខ <b>{{$customer->house_number}}</b>  ភូមិ <b> {{$address-> dis_kh}}  </b> ឃុំ/សង្កាត់ <b>{{$address->com_kh}}</b>  ​ស្រុក/ខណ្ឌ <b>{{$address->dis_kh }}</b> រាជធានី/ខេត្ត <b>{{$address->prov_name}}</b>  </span>
                                <br>
                                <span class="f-kh">កាលបរិចេ្ឆទទិញអចលនទ្រព្យ:</span>
                                 <span class="horizontal_dotted_lines" style=";min-width: 70px">&nbsp; {{AppHelper::khMultipleNumber(date('d', strtotime($loan->first_pay_date)))}} ខែ {{AppHelper::khMonth(date('m', strtotime($loan->first_pay_date)))}} ឆ្នាំ {{AppHelper::khMultipleNumber(date('Y', strtotime($loan->first_pay_date)))}}</span>
@@ -297,11 +297,11 @@
                                 <span class="f-kh"> &nbsp;&nbsp;ចំនួនទឹកប្រាក់:</span>
                                 <span class="horizontal_dotted_lines" style=";min-width: 107px">&nbsp;​$ {{ number_format($payment_schedule->amount_to_spend,2) }} </span>​ 
                                 (
-                                    <span class="horizontal_dotted_lines" style=";min-width: 270px;font-family:Khmer OS System">&nbsp;​{{ AppHelper::khNumberWord( $payment_schedule->amount_to_spend,2) }}ដុល្លារអាមេរិក</span>
+                                    <span class="horizontal_dotted_lines" style=";min-width: 240px;font-family:Khmer OS System">&nbsp;​{{ AppHelper::khNumberWord( $payment_schedule->amount_to_spend,2) }}ដុល្លារអាមេរិក</span>
                                     )
                                     <br> 
                                 <span style="font-family:Khmer OS System">ធនាគារ / Bank:</span>
-                                <span style="font-family:Khmer OS System;font-weight:bold;font-size:14px"> <b> ABA:     000457077 SAN ROTHSING <br> ACLIDA: 34512075730311 SAN ROTHSING</b></span>
+                                <span style="font-family:Khmer OS System;font-weight:bold;font-size:14px"> <b> ABA: 000457077 SAN ROTHSING <br> ACLIDA: 34512075730311 SAN ROTHSING</b></span>
                                 <br>       
                                 {{-- <span class="f-kh">ប្រាក់ដែលបានបង់ៈ</span>
                                     <span class="horizontal_dotted_lines" style=";min-width: 100px">&nbsp;​$ {{ number_format( $payment_schedule->paid,2) }} </span>​ 
@@ -314,11 +314,10 @@
                                 (
                                     <span class="horizontal_dotted_lines" style=";min-width: 270px;font-family:Khmer OS System">&nbsp;​{{ AppHelper::khNumberWord($balance_amount,2) }}ដុល្លារអាមេរិក</span>
                                     ) --}}
-                                    <br>
                                 @if (!empty($payment_transaction->remark))
-                                <span class="f-kh" style="color: red">កំណត់ចំណាំ: {{ $payment_transaction->remark }}</span>
+                                <span class="f-kh" style="color: red;font-weight:">កំណត់ចំណាំ: {{ $payment_transaction->remark }}</span>
                                 @endif
-                                <br>   
+                                <br>
                                 <span class="f-kh">កាលបរិច្ឆេទបង់ប្រាក់ថ្ងៃទី</span>
                                 <span class="horizontal_dotted_lines" style=";min-width: 30px;font-family:Khmer OS System">&nbsp;​{{ $paid_day_number }} </span>
                                 <span class="f-kh">ខែ</span>
@@ -328,7 +327,7 @@
                                 {{-- <span class="f-kh">កាលបរិច្ឆេទត្រូវបង់បន្ទាប់</span>
                                 <span class="horizontal_dotted_lines" style=";min-width: 30px">&nbsp;​{{ $paid_day_number_next }} </span>
                                 <span class="f-kh">ខែ</span>
-                                <span class="horizontal_dotted_lines" style=";min-width: 80px">&nbsp;{{ $paid_month_next }} </span>
+                                <span class="horizontal_dotted_lines" style="bold;min-width: 80px">&nbsp;{{ $paid_month_next }} </span>
                                 <span class="f-kh">ឆ្នាំ</span> --}}
                                 {{-- <span class="horizontal_dotted_lines" style=";min-width: 50px">&nbsp;{{ $paid_year_next }} </span> --}}
                                 {{-- <span class="f-kh"><strong>បញ្ជាក់៖</strong>ក្នុងករណីដែលអតិថិជនបង់ប្រាក់ពុំទៀងទាត់តាមកាលកំណត់នឺងត្រូវពិន័យដូចបានចែងក្នុងកិច្ចសន្យាខ្ចីប្រាក់។</span> --}}
@@ -355,8 +354,8 @@
                                     <span class="f-kh">អ្នកទទួល(បេឡាករ) / Receive by:</span><br><br><br>
                                     <span>ឈ្មោះ / Name :.................................. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tel: ...........................................</span>
                                 </div>
-                                <div class="col-md-12 mt-4" style="background: #6262f7; color:white; text-align: center; margin-top: 40px;">
-                                    <p class="f-kh p-footer" style="margin-bottom: 12px;">អាស័យដ្ឋាន៖ ភូមិល្អក់ ឃុំ​​ កណ្តែក  ស្រុក ​ប្រាសាទបាគង ខេត្តសៀមរាប លេខទូរស័ព្ទ៖ 089 71 23 23 / 070 71 23 23</p>
+                                <div class="col-md-12 mt-4" style="background:#22228e;color:white; text-align: center; margin-top: 40px;">
+                                    <p class="f-kh p-footer" style="margin-bottom: 12px;">ការិយាល័យលក់៖ ភូមិល្អក់ ឃុំ​​ កណ្តែក  ស្រុក ​ប្រាសាទបាគង ខេត្តសៀមរាប លេខទូរស័ព្ទ៖ 089 71 23 23 / 070 71 23 23</p>
                                 </div>
                             </div>
                         </div>
