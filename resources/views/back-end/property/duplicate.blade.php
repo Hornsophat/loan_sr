@@ -60,7 +60,7 @@
                                    </div> 
                                    <div class="col-md-6"> 
                                        <div class="form-group">
-                                            {!! Form::label('property_no', trans('item.property_no')) !!}
+                                            {!! Form::label('property_no', trans('item.house_number')) !!}
                                             {!! Form::text('property_no', $item->property_no, array('class' => 'form-control', 'required')) !!}
                                         </div>
                                    </div> 
@@ -99,7 +99,7 @@
                                 <div class="row">
                                     <div class="col-md-12 ">
                                     </div>
-                                    <div class="col-lg-4 form-group mt-2">
+                                    <div class="col-lg-6 form-group mt-2">
                                         {!! Form::label('address_zip_code', trans('បណ្តោយដី (m)')) !!}
                                         {!! Form::text('address_zip_code', $item->address_zip_code, array('class' => 'form-control')) !!}
                                     </div>
@@ -208,19 +208,19 @@
                                 </div>
 
                                 <div class="row" id="aboutContent">
-                                    <div class="col-md-12 mt-2">
+                                    <div class="col-md-12 mt-2" style="display: none">
                                         <h5>{{ __('item.abouts') }} &emsp;<button type="button" class="btn btn-sm btn-primary" id="btnAddAbout"><i class="fa fa-plus"></i></button></h5>
                                         <hr>
                                     </div>
                                     @foreach($abouts as $about)
-                                    <div class="col-md-12">
+                                    <div class="col-md-12" style="display: none">
                                         {!! Form::label('about[]', trans('item.about')) !!} <span class="btn btn-sm btn-outline-danger btn-remove-about"><i class="fa fa-close"></i></span>
                                         {!! Form::text('about[]', $about, array('class' => 'form-control')) !!}
                                     </div>
                                     @endforeach
                                 </div>
 
-                                <div class="row">
+                                {{-- <div class="row">
                                     <div class="col-md-12">
                                         <hr>
                                     </div>
@@ -321,7 +321,7 @@
                                         {!! Form::label('total_number_of_floors_building', trans('item.total_number_of_floors_building')) !!}
                                         {!! Form::number('total_number_of_floors_building', $item->total_number_of_floors_building, array('class' => 'form-control', 'min'=> 0)) !!}
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="form-group">
                                     <label>{{ __('item.property_image') }}(Multiple)</label>
@@ -329,7 +329,7 @@
                                 </div>
 
                                 {{-- Maps --}}
-                                <div class="col-lg-12 form-group align-items-center">
+                                {{-- <div class="col-lg-12 form-group align-items-center">
                                     <div class="map" style="height: 300px !important;" id="map_out"></div>
                                     <hr/>
                                     <div class="map" style="height: 400px !important;" id="map_in"></div>
@@ -341,11 +341,11 @@
                                         <input type="hidden" name="map_data" id="data" class="default-data" value='{{ $item->map_data }}' style="width:100%" readonly/>
                                         <input type="hidden" id="restore" value="restore(IO.OUT(array,map))" type="button" />
                                     </div>
-                                </div>
+                                </div> --}}
 
 
 
-                                {!! Form::submit(trans('item.submit'), array('class' => 'btn btn-primary pull-right', 'id' => 'property_submit')) !!}
+                                {!! Form::submit(trans('item.submit'), array('class' => 'btn btn-primary pull-left', 'id' => 'property_submit')) !!}
 
                                 {!! Form::close() !!}
                             </div>

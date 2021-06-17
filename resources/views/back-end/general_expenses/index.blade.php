@@ -19,7 +19,7 @@
             			<div class="row">
             				<div class="col-md-3">
             					@if(Auth::user()->can('add-exspense-group') || $isAdministrator)
-									<a href="{{ route('general_expense.create')}}" class="  btn-success mb-4">{{ __('item.new_expense') }}</a>
+									<a href="{{ route('general_expense.create')}}" class="btn  btn-success mb-4">{{ __('item.new_expense') }}</a>
 								@endif
             				</div>
             				<div class="col-md-9">

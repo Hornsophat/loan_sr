@@ -233,17 +233,17 @@
                                 </div>
 
                                 <div class="row" id="aboutContent">
-                                    <div class="col-md-10 mt-4">
+                                    <div class="col-md-10 mt-4" style="display: none">
                                         <h5>{{ __('item.abouts') }} &emsp;<button type="button" class="btn btn-sm btn-primary" id="btnAddAbout"><i class="fa fa-plus"></i></button></h5>
                                         <hr>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-12" style="display: none">
                                         {!! Form::label('about[]', trans('item.about')) !!} <span class="btn btn-sm btn-outline-danger btn-remove-about"><i class="fa fa-close"></i></span>
                                         {!! Form::text('about[]', Input::old('about[]'), array('class' => 'form-control')) !!}
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="row">
+                                {{-- <div class="row">
                                     <div class="col-lg-4 form-group">
                                         {!! Form::label('bed_room', trans('item.bedroom')) !!}
                                         {!! Form::number('bed_room', Input::old('bed_room'), array('class' => 'form-control')) !!}
@@ -305,7 +305,7 @@
                                         {!! Form::label('total_number_of_floors_building', trans('item.total_number_of_floors_building')) !!}
                                         {!! Form::number('total_number_of_floors_building', Input::old('total_number_of_floors_building'), array('class' => 'form-control')) !!}
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="form-group">
                                     <label>{{ __('item.property_image') }}(Multiple)</label>
@@ -313,7 +313,7 @@
                                 </div>
 
                                 {{-- Maps --}}
-                                <div class="col-lg-12 form-group align-items-center">
+                                {{-- <div class="col-lg-12 form-group align-items-center">
                                     <div class="map" style="height: 400px !important;" id="map_in"></div>
                                     <div style="text-align:center; margin-top: 15px;">
                                         <input class="btn btn-danger" id="clear_shapes" value="{{ __('item.clear_map') }}" type="button"  />
@@ -321,8 +321,8 @@
                                         <input type="hidden" id="restore" value="restore(IO.OUT(array,map))"         type="button" />
                                         <input type="hidden" name="map_data" id="data" value="" style="width:100%" readonly/>
                                     </div>
-                                </div>
-                                {!! Form::submit(trans('item.submit'), array('class' => 'btn btn-primary pull-right', 'id' => 'property_submit')) !!}
+                                </div> --}}
+                                {!! Form::submit(trans('item.submit'), array('class' => 'btn btn-primary pull-left', 'id' => 'property_submit')) !!}
 
                                 {!! Form::close() !!}
                             </div>

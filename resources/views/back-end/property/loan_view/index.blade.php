@@ -27,7 +27,7 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-sm-12">
                                             @if(Auth::user()->can('create-property') || $isAdministrator)
-                                                <a class="btn btn-small btn-success" href="{{ URL::to('property/vehicle/create') }}">{{trans('item.new_vehicle')}}</a>
+                                                <a class="btn btn-small btn-success" href="{{ URL::to('property/create') }}">{{trans('item.new_property')}}</a>
                                             @endif
                                             @if(Auth::user()->can('merge-property') || $isAdministrator)
                                                 <!-- <a class="btn btn-small btn-outline-success" href="{{ route('property_merge') }}">{{trans('item.merge_property')}}</a> -->

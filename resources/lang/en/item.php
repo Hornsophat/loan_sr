@@ -292,7 +292,7 @@ return [
     // Property
     'property_id'                  => 'ID',
     'edit_vehicle'                  => 'Edit Vehicle',
-    'property'                     => 'Property',
+    'property'                     => 'គ្រប់គ្រងការលក់',
     'new_property'                 => 'New Property',
     'new_vehicle'                 => 'New Vehicle',
     'property_name'                => 'Property Name',
@@ -306,7 +306,7 @@ return [
     'edit_property'                => 'Edit Property',   
     'property_detail'              => 'Property Detail',
     'view_property'                => 'View Property',     
-    'property_type'                => 'Type',
+    'property_type'                => 'Property Type',
     'zipcode'                      => 'Zip Code',
     'bedroom'                      => 'Bedroom',
     'bathroom'                     => 'Bathroom',

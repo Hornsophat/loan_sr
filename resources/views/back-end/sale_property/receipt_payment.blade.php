@@ -169,7 +169,7 @@
                                 <img src="{{Setting::get('LOGO')}}" width="100%" height="100%">
                             </div>
                             <div class="title">
-                                <p style="margin-bottom: 0; font-family: Khmer OS Muol Light;font-size:23px">ក្រុម​ ហ៊ុន រដ្ឋ ស៊ីង អចលនទ្រព្យ</p>
+                                <p style="margin-bottom: 0; font-family: Khmer OS Muol Light;font-size:23px">ក្រុម​ហ៊ុន រដ្ឋ ស៊ីង អចលនទ្រព្យ</p>
                                 <p class="p-border-bottom" style="display:inline-block;font-family:Time New Roman;font-size:25px;font-weight: bold;">RothSing Real Estate Co,ltd</p>
                             </div>
                             <div class="title">
@@ -204,8 +204,8 @@
                         $amount_pay=($payment_schedule->amount_to_spend)+ ($payment_schedule->penalty_amount);
                         $pay_late_total=$payment_schedule->penalty_amount;
                         $total_pay=$paid + $pay_late_total;
-                        $balance_amount= $payment_schedule->amount_to_spend-$payment_schedule->paid;
-                        $balance_last= $payment_schedule->amount_to_spend - $payment_transaction->amount;
+                        $payment_schedule->amount_to_spend1 = $payment_schedule->amount_to_spend - $payment_schedule->paid +  $payment_transaction->amount;
+                        $balance_amount= $payment_schedule->amount_to_spend1 -$payment_transaction->amount;
 
                         
                         $paid_day_number = AppHelper::khMultipleNumber(date('d', strtotime($paid_date)));
@@ -280,16 +280,24 @@
                                 <span class="horizontal_dotted_lines" style=";width:20mm;"><b>% {{$loan->interest_rate}}</b></span> --}}
                                 <br>
                                 <span class="f-kh">ទឹកប្រាក់ដែលបានបង់ហើយ:​</span>
-                                <span class="horizontal_dotted_lines" style=";min-width: 120px;">&nbsp;​$ {{$payment_transaction->amount }} </span>
-                                (
-                                <span class="horizontal_dotted_lines" style=";min-width: 270px;font-family:Khmer OS System">&nbsp;​{{ AppHelper::khNumberWord($payment_transaction->amount) }}ដុល្លារអាមេរិក</span>
+                                @if( $payment_transaction->amount!=0)
+                                <span class="horizontal_dotted_lines" style="min-width: 100px">&nbsp;​$ {{ number_format(  $payment_transaction->amount,2) }} </span>​ 
+                            (
+                                <span class="horizontal_dotted_lines" style="min-width: 270px;font-family:Khmer OS System">&nbsp;​{{ AppHelper::khNumberWord($payment_transaction->amount,2) }}ដុល្លារអាមេរិក</span>
                                 )
+                             @endif
+                             @if( $payment_transaction->amount==0)
+                             <span class="horizontal_dotted_lines" style="min-width: 100px">&nbsp;​$ {{ number_format($pay_late_total,2) }} </span>​ 
+                            (
+                                <span class="horizontal_dotted_lines" style="min-width: 270px;font-family:Khmer OS System">&nbsp;​{{ AppHelper::khNumberWord($pay_late_total,2) }}ដុល្លារអាមេរិក</span>
+                                )
+                             @endif
                                 <br>
                                 <span class="f-kh">ទឹកប្រាក់ដែលនៅសល់:​</span>
-                                <span class="horizontal_dotted_lines" style=";min-width: 120px;">&nbsp;​$ {{ $balance_last }} </span>
+                                <span class="horizontal_dotted_lines" style="min-width: 100px">&nbsp;​$ {{ number_format($balance_amount,2) }} </span>​ 
                                 (
-                                <span class="horizontal_dotted_lines" style=";min-width: 270px;font-family:Khmer OS System">&nbsp;​{{ AppHelper::khNumberWord( $balance_last) }}ដុល្លារអាមេរិក</span>
-                                )
+                                    <span class="horizontal_dotted_lines" style="min-width: 270px;font-family:Khmer OS System">&nbsp;​{{ AppHelper::khNumberWord($balance_amount,2) }}ដុល្លារអាមេរិក</span>
+                                    )
                                 <br>
                                 <span class="f-kh" style="font-family:Khmer OS System">ដំណាក់កាលទី​៊​ / Stage No:</span>
                                 <span  class="horizontal_dotted_lines" style=";min-width: 30px;font-weight:bold">{{ $payment_schedule->order }}</span>

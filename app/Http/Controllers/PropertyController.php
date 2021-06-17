@@ -352,7 +352,7 @@ class PropertyController extends Controller
         $items->address_number = Input::get('address_number');
         $items->property_name = Input::get('property_name');
         $items->property_no = Input::get('property_no');
-        $items->address_zip_code = Input::get('zip_code');
+        $items->address_zip_code = Input::get('address_zip_code');
         $items->bed_rooms = Input::get('bed_room');
         $items->bathrooms = Input::get('bath_room');
         $items->other_room = Input::get('other_room');
@@ -467,7 +467,7 @@ class PropertyController extends Controller
         $items->address_number = Input::get('address_number');
         $items->property_name = Input::get('property_name');
         $items->property_no = Input::get('property_no');
-        $items->address_zip_code = Input::get('zip_code');
+        $items->address_zip_code = Input::get('address_zip_code');
         $items->bed_rooms = Input::get('bed_room');
         $items->bathrooms = Input::get('bath_room');
         $items->other_room = Input::get('other_room');
@@ -582,7 +582,7 @@ class PropertyController extends Controller
         $items->address_number = Input::get('address_number');
         $items->property_name = Input::get('property_name');
         $items->property_no = Input::get('property_no');
-        $items->address_zip_code = Input::get('zip_code');
+        $items->address_zip_code = Input::get('address_zip_code');
         $items->bed_rooms = Input::get('bed_room');
         $items->bathrooms = Input::get('bath_room');
         $items->other_room = Input::get('other_room');
@@ -781,7 +781,7 @@ class PropertyController extends Controller
         $items->address_number = Input::get('address_number');
         $items->property_name = Input::get('property_name');
         $items->property_no = Input::get('property_no');
-        $items->address_zip_code = Input::get('zip_code');
+        $items->address_zip_code = Input::get('address_zip_code');
         $items->bed_rooms = Input::get('bed_room');
         $items->bathrooms = Input::get('bath_room');
         $items->other_room = Input::get('other_room');
@@ -890,7 +890,7 @@ class PropertyController extends Controller
         $items->address_number = Input::get('address_number');
         $items->property_name = Input::get('property_name');
         $items->property_no = Input::get('property_no');
-        $items->address_zip_code = Input::get('zip_code');
+        $items->address_zip_code = Input::get('address_zip_code');
         $items->bed_rooms = Input::get('bed_room');
         $items->bathrooms = Input::get('bath_room');
         $items->other_room = Input::get('other_room');
@@ -999,7 +999,7 @@ class PropertyController extends Controller
         $items->address_number = Input::get('address_number');
         $items->property_name = Input::get('property_name');
         $items->property_no = Input::get('property_no');
-        $items->address_zip_code = Input::get('zip_code');
+        $items->address_zip_code = Input::get('address_zip_code');
         $items->bed_rooms = Input::get('bed_room');
         $items->nb_machine = Input::get('nb_machine');
         $items->bathrooms = Input::get('bath_room');
@@ -1198,7 +1198,7 @@ class PropertyController extends Controller
             $items->address_number = Input::get('address_number');
             $items->property_name = Input::get('property_name');
             $items->property_no = Input::get('property_no');
-            $items->address_zip_code = Input::get('zip_code');
+            $items->address_zip_code = Input::get('address_zip_code');
             $items->bed_rooms = Input::get('bed_room');
             $items->bathrooms = Input::get('bath_room');
             $items->other_room = Input::get('other_room');

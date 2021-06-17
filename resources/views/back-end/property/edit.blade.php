@@ -53,7 +53,7 @@
                                     <div class="col-md-6"> 
                                         <div class="form-group"  style="font-family: 'Times New Roman', Times, serif">
                                              {!! Form::label('land_num', trans('item.land_num'))."<span class='star'> </span>" !!}
-                                             {!! Form::text('land_num', Input::old('land_num'), array('class' => 'form-control')) !!}
+                                             {!! Form::text('land_num',  $item->land_num, array('class' => 'form-control')) !!}
                                              <div class="input-group-append">
                                                 <span class="input-group-text" >ម៉ែត្រ</span>
                                             </div>
@@ -82,7 +82,7 @@
                                    </div> 
                                    <div class="col-md-6"> 
                                        <div class="form-group"  style="font-family: 'Times New Roman', Times, serif">
-                                            {!! Form::label('property_no', trans('item.property_no')) !!}
+                                            {!! Form::label('property_no', trans('item.house_number')) !!}
                                             {!! Form::text('property_no', $item->property_no, array('class' => 'form-control')) !!}
                                         </div>
                                    </div> 
@@ -217,44 +217,44 @@
                                         </div>
                                         <div class="col-lg-6 form-group"  style="font-family: 'Times New Roman', Times, serif">
                                             {!! Form::label('address_street', trans('item.address_street')) !!}
-                                            {!! Form::text('address_street', Input::old('address_street'), array('class' => 'form-control')) !!}
+                                            {!! Form::text('address_street',  $item->address_street, array('class' => 'form-control')) !!}
                                         </div>
                                         <div class="col-lg-6 form-group"  style="font-family: 'Times New Roman', Times, serif">
                                             {!! Form::label('address_number', trans('item.address_number')) !!}
-                                            {!! Form::text('address_number', Input::old('address_number'), array('class' => 'form-control')) !!}
+                                            {!! Form::text('address_number',  $item->address_number, array('class' => 'form-control')) !!}
                                         </div>
                                         <div class="col-md-6"  style="font-family:Khmer OS System;"​​​ >
                                             {!! Form::label('village', trans('item.village')) !!}
-                                            {!! Form::text('village', Input::old('village'), array('class' => 'form-control')) !!}
+                                            {!! Form::text('village',  $item->village, array('class' => 'form-control')) !!}
                                         </div>
                                          <div class="col-md-6"  style="font-family:Khmer OS System;"​​​ >
                                             {!! Form::label('commune', trans('item.commune')) !!}
-                                            {!! Form::text('commune', Input::old('commune'), array('class' => 'form-control')) !!}
+                                            {!! Form::text('commune', $item->commune, array('class' => 'form-control')) !!}
                                         </div>
                                          <div class="col-md-6"  style="font-family:Khmer OS System;"​​​ >
                                             {!! Form::label('district', trans('item.district')) !!}
-                                            {!! Form::text('district', Input::old('district'), array('class' => 'form-control')) !!}
+                                            {!! Form::text('district', $item->district, array('class' => 'form-control')) !!}
                                         </div>
                                          <div class="col-md-6"  style="font-family:Khmer OS System;"​​​ >
                                             {!! Form::label('province', trans('item.province')) !!}
-                                            {!! Form::text('province', Input::old('province'), array('class' => 'form-control')) !!}
+                                            {!! Form::text('province',  $item->province, array('class' => 'form-control')) !!}
                                         </div> 
                                 </div>
 
                                 <div class="row" id="aboutContent">
-                                    <div class="col-md-12 mt-2">
+                                    <div class="col-md-12 mt-2" style="display: none">
                                         <h5>{{ __('item.abouts') }} &emsp;<button type="button" class="btn btn-sm btn-primary" id="btnAddAbout"><i class="fa fa-plus"></i></button></h5>
                                         <hr>
                                     </div>
                                     @foreach($abouts as $about)
-                                    <div class="col-md-12">
+                                    <div class="col-md-12" style="display: none">
                                         {!! Form::label('about[]', trans('item.about')) !!} <span class="btn btn-sm btn-outline-danger btn-remove-about"><i class="fa fa-close"></i></span>
                                         {!! Form::text('about[]', $about, array('class' => 'form-control')) !!}
                                     </div>
                                     @endforeach
                                 </div>
 
-                                <div class="row">
+                                {{-- <div class="row">
                                     <div class="col-md-12">
                                         <hr>
                                     </div>
@@ -340,14 +340,14 @@
                                         {!! Form::label('total_number_of_floors_building', trans('item.total_number_of_floors_building')) !!}
                                         {!! Form::number('total_number_of_floors_building', $item->total_number_of_floors_building, array('class' => 'form-control', 'min'=> 0)) !!}
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <label>{{ __('item.property_image') }}(Multiple)</label>
                                     <input class="form-control" id="images" name="images[]" type="file" multiple accept="image/x-png,image/bmp,image/jpeg">
                                 </div>
 
                                 {{-- Maps --}}
-                                <div class="col-lg-12 form-group align-items-center">
+                                {{-- <div class="col-lg-12 form-group align-items-center">
                                     <div class="map" style="height: 300px !important;" id="map_out"></div>
                                     <hr/>
                                     <div class="map" style="height: 400px !important;" id="map_in"></div>
@@ -358,8 +358,8 @@
                                         <input type="hidden" class="btn btn-primary" id="save_raw" type="button" />
                                         <input type="hidden" name="map_data" id="data" class="default-data" value='{{ $item->map_data }}' style="width:100%" readonly/>
                                     </div>
-                                </div>
-                                {!! Form::submit(trans('item.submit'), array('class' => 'btn btn-primary pull-right', 'id' => 'property_submit')) !!}
+                                </div> --}}
+                                {!! Form::submit(trans('item.submit'), array('class' => 'btn btn-primary pull-left', 'id' => 'property_submit')) !!}
 
                                 {!! Form::close() !!}
                              </div>

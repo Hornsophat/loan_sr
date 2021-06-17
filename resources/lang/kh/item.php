@@ -237,8 +237,8 @@
 
 		// Project
 		'project_no'                   	=> 'No',
-		'project'                      	=> 'ទីតាំងលក់',
-		'new_project'                  	=> 'ទីតាំងលក់ថ្មី',
+		'project'                      	=> 'គម្រោងអចលនទ្រព្យ',
+		'new_project'                  	=> 'បង្កើតគម្រោងអចលនទ្រព្យថ្មី',
 		'list_project'                 	=> 'បញ្ជីទីតាំងលក់',
 		'edit_project'                 	=> 'កែប្រែទីតាំងលក់',
 		'project_name'                 	=> 'ឈ្មោះទីតាំងលក់',
@@ -275,7 +275,7 @@
 
 		// Property
 		'property_id'                  	=> 'ID',
-		'property'						=> 'គ្រប់គ្រងការលក់',		
+		'property៌'						 => 'គ្រប់គ្រងការលក់',		
 	    'new_property'                 	=> 'ទ្រព្យសម្បត្តិថ្មី',
 	    'property_name'                	=> 'ឈ្មោះទ្រព្យសម្បត្តិ',
 	    'list_property'                	=> 'បញ្ជីទ្រព្យសម្បត្តិ',

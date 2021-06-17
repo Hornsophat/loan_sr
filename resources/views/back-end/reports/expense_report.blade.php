@@ -87,12 +87,14 @@
 						</div>
 						<div id="table_print">
 						<div class="text-success display_message text-center"></div><br>
-						<div class="row">
-							<div class="col-sm-4 col-md-4"><img src="{{Setting::get('LOGO')}}" style="height: 50px;margin-bottom: 20px;"></div>
-						</div>
-						<div class="row">
+						<div style="margin-left: 150px;"><img src="{{Setting::get('LOGO')}}" style="height:150px;margin-bottom: 20px;"></div>
+						<center>
+							<div style="font-family: Khmer OS Muol light;font-size:20px;margin-top:-150px">ក្រុមហ៊ុន រដ្ឋ ស៊ីង អចលនទ្រព្យ</div>
+							<div style="font-family: Khmer OS Muol light;font-size:20px;font-weight:bold">RothSing Real Estate Co,ltd</div>
+						</center>	
+						<div class="row mt-4">
 							<div class="col-md-12 text-center">
-								<h3>{{ __('item.expense_report') }}</h3>
+								<h3 style="font-size: 19px">{{ __('item.expense_report') }}</h3>
 							</div>
 						</div>
 						{{-- <div class="row">

@@ -1826,18 +1826,18 @@ class SalePropertyController extends Controller
         if(!Auth::user()->can('cancel-sale') && !AppHelper::checkAdministrator())
             return view('back-end.common.no-permission');
         $data['message'] =0;
-        // if(!empty($request->sale)){
+        if(!empty($request->sale)){
             $sale = SaleItem::find($request->sale);
-            // if(!empty($sale)){
+            if(!empty($sale)){
                 $loan_first = Loan::where('sale_id', '=', $sale->id)
                 ->whereNull('loan_type')->first();
                 $sale_pay_num = PaymentTransaction::where([
                     ['sale_id', '=', $sale->id],
                     ['is_cancel', '=', 0]
                 ])->count();
-                // if(!empty($loan_first) && $sale->status!='completed' && $sale_pay_num==0){
+                if(!empty($loan_first) && $sale->status!='completed' && $sale_pay_num==0){
                     $payment_schedule =  PaymentSchedule::where('loan_id', '=', $loan_first->id)->first();
-                    // if(!empty($payment_schedule)){
+                    if(!empty($payment_schedule)){
                         $this_order_transaction = DB::table('payment_transactions')->where([
                             ['payment_schedule_id', '=', $payment_schedule->id],
                             ['is_cancel', '<>', 1]
@@ -1847,7 +1847,7 @@ class SalePropertyController extends Controller
                             ['status', '<>', Config::get('app.loan_status_cancel')]
                         ])
                         ->whereNotNull('loan_type')->get()->count();
-                        // if($loans<=0 && $this_order_transaction<=0){
+                        if($loans<=0 && $this_order_transaction<=0){
                             // this cancel sale
                             $property = Property::find($sale->property_id);
                             if (!empty($property)) {
@@ -1857,7 +1857,7 @@ class SalePropertyController extends Controller
                                 ])->latest()->first();
                                 if (!empty($reservation)) {
                                     $reservation->status ='booked';
-                                    $property->status = Config::get('app.property_status_booked');
+                                    $property->status = Config::get('app.property_status_closed');
                                     $reservation->save();
                                 }else{
                                     $property->status=Config::get('app.property_status_closed');
@@ -1885,11 +1885,11 @@ class SalePropertyController extends Controller
                             $sale->updated_by = Auth::id();
                             $sale->save();
                             $data['message'] = 1;
-                        // }
-                    // }
-                // }
-            // }
-        // }
+                        }
+                    }
+                }
+            }
+        }
         return $data;
     }
     function has_next_loan($loan_id){

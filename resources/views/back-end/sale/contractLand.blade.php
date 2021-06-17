@@ -134,7 +134,7 @@
 							<div class="">
 								<div class="content">
 									<table class="table">
-										<div class="box-logo">
+										<div class="box-logo" style="margin-top: 60px">
 											<img src="{{Setting::get('LOGO')}}" width="50%" height="200%">
 										</div>
 				                	<tbody>
@@ -156,9 +156,8 @@
 												<td style="color:blue; font-family: 'Khmer OS Muol Light'; ; font-size:25px">ជាតិ សាសនា ព្រះមហាក្សត្រ</td>
 											</tr>
 											<tr>
-												<td style="font-family: Tacteing ;text-align:center;font-size:40px">6</td>
+												<td><img src="..\..\resources\assets\photos\fonttac.png"></td>
 											</tr>
-											<tr><td><p></p></td></tr>
 											<tr>
 												<td style="font-size: 13pt; font-family: 'Khmer OS Muol Light';">កិច្ចសន្យាលក់-ទិញផ្ទះ{{$sale->about }}</td>
 											</tr>
@@ -539,31 +538,34 @@
 											<th>ស្នាមមេដៃភាគីភាគី៉៉​​"ខ"</th>
 											</tr>
 											<tr>
-											<td style="font-family: Khmer OS Muol Light">&emsp;&emsp; សាន រដ្ឋស៊ីង <br> <span style="font-family: Khmer OS System;font-weight:bold;margin-left:30px">(ភាគីម្ចាស់អចលនវត្ថុ)</span></td>
-											<td>&emsp;&emsp;​ <b>{{$sale->customer_name}}</b> <br> <span style="font-family: Khmer OS System;font-weight:bold;margin-left:30px">(ភាគីអ្នកទិញ)</span></td>
+											<td style="font-family: Khmer OS Muol Light">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; សាន រដ្ឋស៊ីង <br> <span style="font-family: Khmer OS System;font-weight:bold;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(ភាគីម្ចាស់អចលនទ្រព្យ)</span></td>
+											<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;​ <b>{{$sale->customer_name}}</b> <br> <span style="font-family: Khmer OS System;font-weight:bold;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(ភាគីអ្នកទិញ)</span></td>
 											</tr>
 										</table>
-										<table  style="margin-left:30%;width:50%;font-size:15px;height:350px;margin-top:-10px;font-family:Khmer OS System">
+										<table style="font-family:Khmer OS System; height:120px">
 											<tr>
 											<th></th>
-											<th>សាក្សី</th>
+											<th class="text-right">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;សាក្សី</th>
+											<th></th>
 											</tr>
 											<tr>
-											<td>&emsp;&emsp;------------------------- </td>
-											<td>&emsp;&emsp;-------------------------</td>
+											<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;------------------------- </td>
+											<td></td>
+											<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-------------------------</td>
 											</tr>
 										</table>
 										<tr>
-											<td> <p  class="text-center" style="font-family: Khmer OS Muol Light">បានឃើញ និងបញ្ជាក់ថា៖</p></td>
+											<td> <p  style="font-family: Khmer OS Muol Light; margin-left:40%">បានឃើញ និងបញ្ជាក់ថា៖</p></td>
 										</tr>
 										<tr>
-											<td ><p class="text-center" style="font-size:16px;font-family:Khmer OS System"> ធ្វើនៅសៀមរាប, ថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime($sale->created_at)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime($sale->created_at)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($sale->created_at)))}}</b> <br> ភាគីឲខ្ចីប្រាក់ តំណាង-ក្រុមហ៊ុន ភី.អឹម.ប៊ី</p> </td>
+											<td ><p style="font-size:16px;font-family:Khmer OS System;margin-left:33%"> ធ្វើនៅសៀមរាប, ថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime($sale->created_at)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime($sale->created_at)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($sale->created_at)))}}</b> <br> ភាគីឲបង់រំលស់​ តំណាង-ក្រុម​ហ៊ុន រដ្ឋ ស៊ីង អចលនទ្រព្យ</p> </td>
 										</tr>
 										<tr>
-											<td> <p  class="text-center" style="font-family: Khmer OS Muol Light">ហត្ថលេខា និងត្រា</p></td>
+											<td> <p  style="font-family: Khmer OS Muol Light;margin-left:43%">ហត្ថលេខា និងត្រា</p></td>
 										</tr>
 							</div>
-						</div>			
+						</div>		
+					</div>		
 						<br><br><br><br>
 										<div class="form-group">
 											<hr>
@@ -583,7 +585,7 @@
 																<td style="font-family: 'Khmer OS Muol Light';font-size:20px;color:blue;">ជាតិ សាសនា ព្រះមហាក្សត្រ</td>
 															</tr>
 															<tr>
-																<td style="font-family: 'Tacteing';text-align:center;font-size:40px">6</td>
+																<td><img src="..\..\resources\assets\photos\fonttac.png"></td>
 															</tr>
 															<tr><td><p></p></td></tr>
 															<tr>
@@ -620,94 +622,127 @@
 															}?>
 															<tr>
 																<td>
-																	<p class="align-left" style="text-align: justify;">&emsp;&emsp;&emsp;ឲ្យទៅឈ្មោះ <span style="font-family: 'Khmer OS Muol Light';"><b>{{$sale->customer_name}}</b></span> ភេទ <b>{{$sale->customer_gender}} </b>កើតឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($sale->customer_date_of_birht)))}} </b>សញ្ជាតិ <b>{{$sale->customer_nationality}}</b>  មានអត្តសញ្ញាណប័ណ្ណសញ្ជាតិខ្មែរលេខៈ <b>{{AppHelper::khMultipleNumber((string)$sale->customer_identity)}}</b>  ចុះថ្ងៃទី  <b>{{AppHelper::khMultipleNumber(date('d', strtotime($sale->cs_ident)))}} </b> ខែ  <b>{{AppHelper::khMultipleNumber(date('m', strtotime($sale->cs_ident)))}} </b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($sale->cs_ident)))}} </b>អាស័យដ្ឋានបច្ចុប្បន្ន ផ្ទះលេខ <b>{{ $sale->cs_house_n}}</b>  ភូមិ <b> {{$sale-> vil_kh}}  </b> ឃុំ/សង្កាត់ <b>{{$sale->com_kh}}</b> ស្រុក/ខណ្ឌ <b>{{$sale->dis_kh}} </b>ក្រុង/ខេត្ត <b>{{$sale->prov_name}}</b> លេខទូរស័ព្ទ <b>{{ $sale->phone1 }}</b>។ តទៅហៅកាត់ភាគី (ខ) </p> 
+																	<p align="left"​ style="text-align: justify;font-family: Khmer OS System">&emsp;&emsp;&emsp;ឲ្យទៅឈ្មោះ <span style="font-family: 'Khmer OS Muol Light';"><b>{{$sale->customer_name}}</b></span> ភេទ <b>{{$sale->customer_gender}} </b>កើតឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($sale->customer_date_of_birht)))}} </b>សញ្ជាតិ <b>{{$sale->customer_nationality}}</b>  មានអត្តសញ្ញាណប័ណ្ណសញ្ជាតិខ្មែរលេខៈ <b>{{AppHelper::khMultipleNumber((string)$sale->customer_identity)}}</b>  ចុះថ្ងៃទី  <b>{{AppHelper::khMultipleNumber(date('d', strtotime($sale->cs_ident)))}} </b> ខែ  <b>{{AppHelper::khMultipleNumber(date('m', strtotime($sale->cs_ident)))}} </b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($sale->cs_ident)))}} </b>អាស័យដ្ឋានបច្ចុប្បន្ន ផ្ទះលេខ <b>{{ $sale->cs_house_n}}</b>  ភូមិ <b> {{$sale-> vil_kh}}  </b> ឃុំ/សង្កាត់ <b>{{$sale->com_kh}}</b> ស្រុក/ខណ្ឌ <b>{{$sale->dis_kh}} </b>ក្រុង/ខេត្ត <b>{{$sale->prov_name}}</b> លេខទូរស័ព្ទ <b>{{ $sale->phone1 }}</b>។ តទៅហៅកាត់ភាគី (ខ) </p> 
 																</td>
 															</tr>
 															<tr>
 																<td class="text-center"><b>កិច្ចព្រមព្រៀងនៃកិច្ចសន្យា </b></td>
 															</tr>
 															<tr>
-																<td align="left"​ ><b>ប្រការ១: ភាគីទាំងពីរបានឯកភាពគ្នាបង់ប្រាក់តាមកិច្ចព្រមព្រៀងដូចខាងក្រោម</b></td>
+																<td align="left"​><b>ប្រការ១: ភាគីទាំងពីរបានឯកភាពគ្នាបង់ប្រាក់តាមកិច្ចព្រមព្រៀងដូចខាងក្រោម</b></td>
 															</tr>
-															<tr>
-																<td align="left"​>&emsp;&emsp;១.ភាគី«ខ»បានយល់ព្រមបង់ប្រាក់ជា…១ ដំណាក់កាលសំរាប់ចំនួន១៥% ចំនួន ១១,៩៨៨$(មួយម៉ឺនមួយពាន់ប្រាបួនរយប៉ែតសិបប្រាំបីដុល្លាអាមេរិកគត់)។</td>
-															</tr>
-															<tr>
-																<td align="left"​>&emsp;&emsp;២.ភាគី«ខ»បានយល់ព្រមបង់ដំណាក់កាលទី១ កក់បិតផ្ទះ​​ $  <b>{{  $sale->deposit }}</b><b>(​{{ AppHelper::khNumberWord( $sale->deposit) }})</b> ដុល្លារអាមេរិកគត់​​​ នៅថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime($sale->created_at)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime($sale->created_at)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($sale->created_at)))}}</b>។</td>
-															</tr>
-															<tr>
-																<td align="left"​><b>ដំណាក់កាលទី២</b> ភាគី«ខ»យល់ព្រមបង់បន្ថែមបង្រ្គប់ តម្លៃស្មើនឹង$ <b>{{$loan->loan_amount  }}</b> <b>(​{{ AppHelper::khNumberWord($loan->loan_amount) }}) ដុល្លារអាមេរិកគត់</b>  ឪ្យទៅភាគី«ក»</td>
-															</tr>
-															<tr>
-																<td align="left"​><b>ដំណាក់កាលទី៣</b> ភាគី«ខ»នឹងបង់រំលោះចំនួនចាប់ពី ៥០០$(ប្រាំរយដុល្លារ)ឡើងទៅ ក្នុងមួយខែ រហូតដល់១២ខែ(១ឆ្នាំ)គិតចាប់ពីថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime($loan->first_pay_date)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime($loan->first_pay_date)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($loan->first_pay_date)))}}</b></td>
-															</tr>
+															<?php 
+														$loan_count = count($loans);
+														if($sale->deposit<=0)
+														{
+															$i = 0;
+														}else{
+		
+															
+															$i = 1;
+															?>
+																<tr>
+																	<td align="left" style="font-family: 'Khmer OS system">
+																&emsp;&emsp;​​​​​​​​​​ <b>៤.១.{{AppHelper::khMultipleNumber($i)}}. ដំណាក់កាលទី {{AppHelper::khMultipleNumber($i)}}</b>  ៖ ភាគី “ខ” យល់ព្រមបង់ប្រាក់កក់ចំនួន $  <b>{{  $sale->deposit }}</b><b>(​{{ AppHelper::khNumberWord( $sale->deposit) }}) ដុល្លារអាមេរិកគត់</b> ឲ្យទៅភាគី “ក” នៅថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime($sale->created_at)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime($sale->created_at)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($sale->created_at)))}}</b>។
+																	</td>
+																</tr>
+															<?php
+														}
+														$loan_count = $loan_count+$i;
+														
+														foreach($loans as $loan)
+														{
+															$i++;
+															if($loan_count>$i)
+															{
+																?>
+																<tr>
+																	<td align="left" style="font-family: 'Khmer OS system">
+																&emsp;&emsp; <b>{{AppHelper::khMultipleNumber($i)}}. ដំណាក់កាលទី {{AppHelper::khMultipleNumber($i)}}</b> ៖ ភាគី “ខ” យល់ព្រមបង់ប្រាក់បន្ថែមចំនួន​ $ <b>{{$loan->loan_amount  }}</b> <b>(​{{ AppHelper::khNumberWord($loan->loan_amount) }}) ដុល្លារអាមេរិកគត់</b> ឲ្យទៅភាគី “ក” នៅថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime($loan->loan_date)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime($loan->loan_date)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($loan->loan_date)))}}</b>។
+																	</td>
+																</tr>
+															<?php
+															}else{
+																?>
+																	<tr>
+																		<td align="left" style="font-family: 'Khmer OS system">
+																	&emsp;&emsp; <b>{{AppHelper::khMultipleNumber($i)}}.	ដំណាក់កាលទី {{AppHelper::khMultipleNumber($i)}}</b> ៖ ភាគី “ខ” នឹងបង់ប្រាក់ដែលនៅសល់បង្រ្គប់ចំនួន $ <b>{{ $loan->loan_amount  }} </b>  <b>(​{{ AppHelper::khNumberWord( $last_balance) }}) ដុល្លារអាមេរិកគត់</b> ឲ្យទៅភាគី “ក” នៅថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime($loan->loan_date)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime($loan->loan_date)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($loan->loan_date)))}}</b> ហើយភាគី “ក” ត្រូវបញ្ចប់ការសាងសង់ និងកាត់ឈ្មោះផ្ទេរកម្មសិទ្ធិរួចរាល់ជាស្ថាពរឲ្យទៅភាគី“ខ” ហើយភាគី “ក” ត្រូវប្រគល់ប័ណ្ណកម្មសិទ្ធិដែលបានផ្ទេរសិទ្ធិទៅភាគី “ខ” រួចរាល់នោះ ឲ្យទៅភាគី “ខ” ។
+																		</td>
+																	</tr>
+																<?php
+															}
+															
+
+														}
+														?>
+														
 															<tr>
 																<td align="left"​>២.១. ការទទួលខុសត្រូវរបស់ភាគី«ក»</td>
 															</tr>
 															<tr>
-																<td align="left"​>&emsp;&emsp;  -  ភាគី«ក» ទទួលខុសត្រូវរត់ការកាត់ឈ្មោះផ្ទេរសិទ្ធិ និងប្រគល់ប្លង់រឹងអោយទៅភាគី«ខ»អោយបានត្រឹមត្រូវតាមច្បាប់ នៅពេលប្រគល់ផ្ទះជូនភាគីខក្នុងកំឡុងពេលបង់បង្រ្គប់១០០%នៃតម្លៃផ្ទះសរុប។</td>
+																<td align="left" style="text-align: justify;font-family:Khmer OS"​>&emsp;&emsp;  -  ភាគី«ក» ទទួលខុសត្រូវរត់ការកាត់ឈ្មោះផ្ទេរសិទ្ធិ និងប្រគល់ប្លង់រឹងអោយទៅភាគី«ខ»អោយបានត្រឹមត្រូវតាមច្បាប់ នៅពេលប្រគល់ផ្ទះជូនភាគីខក្នុងកំឡុងពេលបង់បង្រ្គប់១០០%នៃតម្លៃផ្ទះសរុប។</td>
 															</tr>
 															<tr>
-																<td align="left"​>&emsp;&emsp;  -  ភាគី«ក» ជាអ្នកទទួលខុសត្រូវលើការចំណាយផ្សេងៗក្នុងការកាត់ឈ្មោះផ្ទេរសិទ្ធិអោយទៅភាគី«ខ»។</td>
+																<td align="left"​ style="text-align: justify;font-family:Khmer OS"​>&emsp;&emsp;  -  ភាគី«ក» ជាអ្នកទទួលខុសត្រូវលើការចំណាយផ្សេងៗក្នុងការកាត់ឈ្មោះផ្ទេរសិទ្ធិអោយទៅភាគី«ខ»។</td>
 															</tr>
 															<tr>
-																<td align="left"​>&emsp;&emsp;  -  ភាគី«ក»ទទួលខុសត្រូវលើការសាងសង់រយះពេល ១២ខែដោយគិតចាប់ពីទទួលលុយកក់គ្រប់ ៣០% អោយរួចរាល់ជូនភាគី«ខ»។ករណីមានការយឺតយ៉ាវ ឬផ្អាកសំណង់ដោយមូលហេតុប្រធានសក្តិ ឬមូលហេតុផ្សេងៗដែលមិនមែនជាកំហុសភាគី “ក”គូភាគីត្រូវជួបចរចាគ្នាដោយសន្តិវិធី យោគយល់និងអធ្យាស្រ័យខ្ពស់រវាងគ្នាដើម្បីដោះស្រាយ។ ប៉ុន្តែប្រសិនបើការយឺតយ៉ាវ ឬផ្អាកសាងសង់កើតឡើងដោយពីកំហុសចេតនារបស់ភាគី”ក”ត្រូវសងសំណងស្មើនឹងអត្រាការប្រាក់ចំនួន១.៥%នៃចំនួនទឹកប្រាក់ដែលភាគី”ក”បានទទួល ។</td>
+																<td> <p  align="left"​ style="text-align: justify;font-family:Khmer OS">&emsp;&emsp;  -  ភាគី«ក»ទទួលខុសត្រូវលើការសាងសង់រយះពេល ១២ខែដោយគិតចាប់ពីទទួលលុយកក់គ្រប់ ៣០% អោយរួចរាល់ជូនភាគី«ខ»។ករណីមានការយឺតយ៉ាវ ឬផ្អាកសំណង់ដោយមូលហេតុប្រធានសក្តិ ឬមូលហេតុផ្សេងៗដែលមិនមែនជាកំហុសភាគី “ក”គូភាគីត្រូវជួបចរចាគ្នាដោយសន្តិវិធី យោគយល់និងអធ្យាស្រ័យខ្ពស់រវាងគ្នាដើម្បីដោះស្រាយ។ ប៉ុន្តែប្រសិនបើការយឺតយ៉ាវ ឬផ្អាកសាងសង់កើតឡើងដោយពីកំហុសចេតនារបស់ភាគី”ក”ត្រូវសងសំណងស្មើនឹងអត្រាការប្រាក់ចំនួន១.៥%នៃចំនួនទឹកប្រាក់ដែលភាគី”ក”បានទទួល ។</td></p>
 															</tr>
 															<tr>
-																<td align="left"​>&emsp;&emsp;  - ករណីប្រធានសក្តិមានន័យថាជាអំពើ ឬស្ថានការណ៍មួយដែលមិនអាចដឹងមុនបាន មិនអាចជៀសបាន និងរារាំងភាគីមិនឪ្យបំពេញកាតព្វកិច្ចរបស់ខ្លួនដែលមានចែងក្នុងកិច្ចព្រមព្រៀងនេះបានហើយដរាបណាអំពើ ព្រឹត្តិការណ៍ ឬស្ថានភាពទាំងនោះហួសពីសមត្ថភាពគ្រប់គ្រង និងមិនមែនកើតឡើងដោយចេតនា ឬដោយខ្វះការប្រិងប្រយ័ត្នរបស់ភាគី។ អំពើ ឬស្ថានភាពទាំងនោះមាន គ្រោះមហន្តរាយធម្មជាតិ រញ្ជួយដី សង្រ្គាម។ល។</td>
+																<td> <p  align="left"​ style="text-align: justify;font-family:Khmer OS">&emsp;&emsp;  - ករណីប្រធានសក្តិមានន័យថាជាអំពើ ឬស្ថានការណ៍មួយដែលមិនអាចដឹងមុនបាន មិនអាចជៀសបាន និងរារាំងភាគីមិនឪ្យបំពេញកាតព្វកិច្ចរបស់ខ្លួនដែលមានចែងក្នុងកិច្ចព្រមព្រៀងនេះបានហើយដរាបណាអំពើ ព្រឹត្តិការណ៍ ឬស្ថានភាពទាំងនោះហួសពីសមត្ថភាពគ្រប់គ្រង និងមិនមែនកើតឡើងដោយចេតនា ឬដោយខ្វះការប្រិងប្រយ័ត្នរបស់ភាគី។ អំពើ ឬស្ថានភាពទាំងនោះមាន គ្រោះមហន្តរាយធម្មជាតិ រញ្ជួយដី សង្រ្គាម។ល។</p></td>
 															</tr>
 															<tr>
-																<td align="left"​>&emsp;&emsp;  - ក្នុងករណីមានការខូចខាតកម្មវត្ថុនៃការលក់ទិញខាងលើ ជាយថាហេតុដោយគ្រោះថ្នាក់ធម្មជាតិនោះគូភាគីត្រូវពិភាក្សា ចូលរួមគ្នាដោះស្រាយដោយសន្តិវិធី។</td>
+																<td align="left"​ style="text-align: justify;font-family:Khmer OS"​>&emsp;&emsp;  - ក្នុងករណីមានការខូចខាតកម្មវត្ថុនៃការលក់ទិញខាងលើ ជាយថាហេតុដោយគ្រោះថ្នាក់ធម្មជាតិនោះគូភាគីត្រូវពិភាក្សា ចូលរួមគ្នាដោះស្រាយដោយសន្តិវិធី។</td>
 															</tr>
 															<tr>
-																<td align="left"​>&emsp;&emsp;  - ភាគី«ក»ទទួលដាក់ប្រព័ន្ធភ្លើងចំនួន៣២អាំពែរម៉ែត្រ និងរត់ប្រព័ន្ធទឹករដ្ឋជូនភាគីខ និងរត់ប្រព័ន្ធខែ្សកាបទូរទស្សន៍ អ៊ីនធឺនិតដោយបង្កប់ចូលជាមួយប្រព័ន្ធភ្លើងតែម្តងចូលដល់ក្នុងផ្ទះ។</td>
+																<td align="left"​ style="text-align: justify;font-family:Khmer OS"​>&emsp;&emsp;  - ភាគី«ក»ទទួលដាក់ប្រព័ន្ធភ្លើងចំនួន៣២អាំពែរម៉ែត្រ និងរត់ប្រព័ន្ធទឹករដ្ឋជូនភាគីខ និងរត់ប្រព័ន្ធខែ្សកាបទូរទស្សន៍ អ៊ីនធឺនិតដោយបង្កប់ចូលជាមួយប្រព័ន្ធភ្លើងតែម្តងចូលដល់ក្នុងផ្ទះ។</td>
 															</tr>
 															<tr>
 																<td align="left"​> ២.២. ការទទួលខុសត្រូវរបស់ភាគី«ខ»</td>
 															</tr>
 															<tr>
-																<td align="left"​>&emsp;&emsp;  - ភាគី«ខ»បានសន្យាថានិងបង់ប្រាក់អោយបានទៀងទាត់តាមពេលវេលាដូចដែលបានឯកភាពខាងលើ។</td>
+																<td align="left"​ style="text-align: justify;font-family:Khmer OS">&emsp;&emsp;  - ភាគី«ខ»បានសន្យាថានិងបង់ប្រាក់អោយបានទៀងទាត់តាមពេលវេលាដូចដែលបានឯកភាពខាងលើ។</td>
 															</tr>
 															<tr>
-																<td align="left"​>&emsp;&emsp;  - ភាគី«ខ»ប្រសិនបើមានការបង់ប្រាក់យឺតចាប់ពី៣០ថ្ងៃសុខចិត្តទទួលការផាកពិន័យការប្រាក់ 1.5% នៃទឹកប្រាក់ដែលភាគីខមានកាតព្វកិច្ចបង់ជូនភាគី ក ។</td>
-															</tr>
-
-															<tr>
-																<td align="left"​ ប្រការ៣: អំពីការបន្ថែមសម្ភារៈ</td>
-															</tr>
-															<tr>
-																<td align="left"​>&emsp;&emsp;&emsp; - នៅក្នុងទិញលក់នេះភាគី”ក”បានបន្ថែមនូវសម្ភារៈដូចខាងក្រោម៖</td>
-															</tr>
-															<tr>
-																<td align="left"​>-ថែមជូន <b>{{$sale->product_first}}</b></td>
-															</tr>
-															<tr>
-																<td align="left"​>-ថែមជូន <b>{{$sale->product_second }}</b></td>
-															</tr>
-															<tr>
-																<td align="left"​>-ថែមជូន <b>{{$sale->product_third }}</b></td>
-															</tr>
-															<tr>
-																<td align="left"​>-ថែមជូន <b>{{$sale->product_four  }}</b></td>
-															</tr>
-															<tr>
-																<td align="left"​>-ថែមជូនជាពិសេសសម្រាប់បន្ទប់មេគ្រួសារមានដូចជា៖ <b>{{$sale->product_five}}</b> </td>
-															</tr>
-															<tr>
-																<td align="left"​><b>ប្រការ៤: អវសាន្តនៃកិច្ចសន្យា</b></td>
-															</tr>
-															<tr>
-																<td align="left"​> &emsp;&emsp;ភាគីទាំងពីរបានឯកភាពគ្នាគ្រប់ចំណុចដូចដែលបានចែងក្នុងប្រការទាំងឡាយខាងលើដោយមិនមានការបង្ខិតបង្ខំ ឫក្លែងបន្លំឡើយ។</td>
-															</tr>
-															<tr>
-																<td align="left"​> &emsp;&emsp;កិច្ចសន្យានេះបានចូលជាធរមាន និងមានសុពលភាពចាប់ពីថ្ងៃផ្ដិតមេដៃស្ដាំនេះតទៅ និងបានធ្វើឡើងជា២ច្បាប់ជាភាសាខ្មែរហើយមានតម្លៃស្មើគ្នាចំពោះមុខច្បាប់។</td>
-															</tr>
-															<tr>
-																<td align="left"​>&emsp;&emsp;&emsp;&emsp;កិច្ចព្រមព្រៀងនេះគ្រប់គ្រងដោយច្បាប់នៃព្រះរាជាណាចក្រកម្ពុជា។</td>
+																<td align="left" style="text-align: justify;font-family:Khmer OS"​>&emsp;&emsp;  - ភាគី«ខ»ប្រសិនបើមានការបង់ប្រាក់យឺតចាប់ពី៣០ថ្ងៃសុខចិត្តទទួលការផាកពិន័យការប្រាក់ 1.5% នៃទឹកប្រាក់ដែលភាគីខមានកាតព្វកិច្ចបង់ជូនភាគី ក ។</td>
 															</tr>
 
 															<tr>
-																<td align="right"​>ធ្វើនៅសៀមរាប ថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime($sale->created_at)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime($sale->created_at)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($sale->created_at)))}}</b></td>
+																<td align="left"​ style="text-align: justify;font-family:Khmer OS"> ប្រការ៣: អំពីការបន្ថែមសម្ភារៈ</td>
+															</tr>
+															<tr>
+																<td align="left"​ style="text-align: justify;font-family:Khmer OS">&emsp;&emsp;&emsp; - នៅក្នុងទិញលក់នេះភាគី”ក”បានបន្ថែមនូវសម្ភារៈដូចខាងក្រោម៖</td>
+															</tr>
+															<tr>
+																<td align="left" style="text-align: justify;font-family:Khmer OS"​>-ថែមជូន: <b>{{$sale->product_first}}</b></td>
+															</tr>
+															<tr>
+																<td align="left"​ style="text-align: justify;font-family:Khmer OS">-ថែមជូន: <b>{{$sale->product_second }}</b></td>
+															</tr>
+															<tr>
+																<td align="left" style="text-align: justify;font-family:Khmer OS"​>-ថែមជូន: <b>{{$sale->product_third }}</b></td>
+															</tr>
+															<tr>
+																<td align="left"​ style="text-align: justify;font-family:Khmer OS">-ថែមជូន: <b>{{$sale->product_four  }}</b></td>
+															</tr>
+															<tr>
+																<td align="left"​ style="text-align: justify;font-family:Khmer OS">-ថែមជូន: <b>{{$sale->product_five}}</b> </td>
+															</tr>
+															<tr>
+																<td align="left"​ ><b>ប្រការ៤: អវសាន្តនៃកិច្ចសន្យា</b></td>
+															</tr>
+															<tr>
+																<td align="left" style="text-align: justify;font-family:Khmer OS"​> &emsp;&emsp;ភាគីទាំងពីរបានឯកភាពគ្នាគ្រប់ចំណុចដូចដែលបានចែងក្នុងប្រការទាំងឡាយខាងលើដោយមិនមានការបង្ខិតបង្ខំ ឫក្លែងបន្លំឡើយ។</td>
+															</tr>
+															<tr>
+																<td align="left"​ style="text-align: justify;font-family:Khmer OS"> &emsp;&emsp;កិច្ចសន្យានេះបានចូលជាធរមាន និងមានសុពលភាពចាប់ពីថ្ងៃផ្ដិតមេដៃស្ដាំនេះតទៅ និងបានធ្វើឡើងជា២ច្បាប់ជាភាសាខ្មែរហើយមានតម្លៃស្មើគ្នាចំពោះមុខច្បាប់។</td>
+															</tr>
+															<tr>
+																<td align="left" style="text-align: justify;font-family:Khmer OS"​>&emsp;&emsp;&emsp;&emsp;កិច្ចព្រមព្រៀងនេះគ្រប់គ្រងដោយច្បាប់នៃព្រះរាជាណាចក្រកម្ពុជា។</td>
+															</tr>
+
+															<tr>
+																<td style="font-family:Khmer OS">ធ្វើនៅសៀមរាប ថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime($sale->created_at)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime($sale->created_at)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($sale->created_at)))}}</b></td>
 															</tr>
 															<tr>
 																<td></td>
@@ -715,7 +750,7 @@
 															<tr>
 																<td></td>
 															</tr>
-																<table style="width:100%;font-size:15px;height:350px;margin-top:-100px;font-family:Khmer OS System">
+																<table style="width:90%;font-size:15px;height:350px;margin-top:-100px;font-family:Khmer OS System">
 																	<tr>
 																	<th>ស្នាមមេដៃស្ដាំភាគី«ក»</th>
 																	<th>សាក្សីភាគី«ក»</th>
@@ -723,10 +758,10 @@
 																	<th>ស្នាមមេដៃស្ដាំភាគី«ខ»</th>
 																	</tr>
 																	<tr>
-																	<td style="font-family: Khmer OS Muol light;">សាន្ត រដ្ឋស៊ីង</td>
-																	<td>-------------------------</td>
-																	<td>-------------------------</td>
-																	<td>{{$sale->customer_name}}</td>
+																	<td style="font-family: Khmer OS Muol light;">&emsp;&emsp;សាន្ត រដ្ឋស៊ីង</td>
+																	<td>&emsp;&emsp;-------------------------</td>
+																	<td>&emsp;&emsp;-------------------------</td>
+																	<td>&emsp;&emsp;&emsp;&emsp;<b>{{$sale->customer_name}}</b></td>
 																	</tr>
 																	</table>
 																
