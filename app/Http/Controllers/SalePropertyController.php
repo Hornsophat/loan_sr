@@ -248,6 +248,68 @@ class SalePropertyController extends Controller
         }
     }
 
+    function edit_booking_detail(Request $request, $id){
+        if(!Auth::user()->can('booking-propery') && !AppHelper::checkAdministrator())
+        return view('back-end.common.no-permission');
+
+        $detail = DB::table('book_details')->where('id',$id)->first();
+        $reservation = Reservation::find($detail->reservation_id);
+        if(!$reservation){
+            return redirect()->back()->with('error-message', __('item.not_found'));
+        }
+        $property = Property::find($reservation->property_id);
+        if(!$property){
+            return redirect()->back()->with('error-message', __('item.not_found'));
+        }
+        if($reservation->status!='booked' || $property->status!=Config::get('app.property_status_booked')){
+            return redirect()->back()->with('error-message', __('item.error_edit_booking'));
+        }
+        if($request->method()=='GET'){
+          
+            $cus = Customer::get();
+            $customers[null] = "-- ".__('item.select')." ".__('item.customer')." --";
+            foreach ($cus as $key => $value) {
+                $customers[$value->id] = $value->customer_no." | ".$value->last_name." ".$value->first_name;
+            }
+            $payment_transaction = PaymentTransaction::where('reservation_id', '=', $reservation->id)->first();
+            return view('back-end.sale_property.edit_booking_detail', compact('detail','property',  'customers', 'reservation', 'payment_transaction'));
+        }elseif($request->method()=='POST'){
+            $this->validate($request,[
+                'date' => 'required|date',
+                'deposit' => 'required|numeric|min:0',
+            ]);
+
+            //add to book detail
+           DB::table('book_details')->where('id',$id)->update([
+                'amount'=>$request->deposit,
+                'reservation_id'=>$detail->reservation_id,
+                'date'=>date('Y-m-d', strtotime($request->date)),
+            ]);
+
+            $reservation = DB::table('reservations')->where('id',$detail->reservation_id)->update([
+                'amount'=>$reservation->amount-$detail->amount+$request->deposit,
+                'date_booked'=>date('Y-m-d', strtotime($request->date))
+            ]);
+           
+            return redirect()->route('property')->with('message', __('item.success_edit_booking_detail'));
+        }
+    }
+
+    function delete_booking_detail($id){
+    	if(!Auth::user()->can('booking-propery') && !AppHelper::checkAdministrator())
+            return view('back-end.common.no-permission');
+        //get data
+        $detail = DB::table('book_details')->where('id',$id)->first();
+        $reservation = Reservation::find($detail->reservation_id);
+        //update reservation
+        $reservation = DB::table('reservations')->where('id',$detail->reservation_id)->update([
+            'amount'=>$reservation->amount-$detail->amount
+        ]);
+        //delete
+        DB::table('book_details')->where('id',$id)->delete();
+        return redirect()->back()->with('message', __('item.success_delete_booking'));
+    }
+
 
     function delete_booking($id){
     	if(!Auth::user()->can('booking-propery') && !AppHelper::checkAdministrator())
@@ -349,7 +411,13 @@ class SalePropertyController extends Controller
         $customer=Customer::find($reservation->customer_id);
         $project=Project::find($reservation->project_id);
         $created_by = User::find($reservation->created_by);
-        $payment_transaction = PaymentTransaction::where('reservation_id', '=', $reservation->id)->first();
+        if(Input::get('book_detail_id',false))
+        {
+            $payment_transaction = DB::table('book_details')->where('id', '=', Input::get('book_detail_id',false))->first();
+        }else{
+            $payment_transaction = PaymentTransaction::where('reservation_id', '=', $reservation->id)->first();
+        }
+        
         return view('back-end.sale_property.receipt_booking', compact('address','property', 'reservation', 'customer', 'project', 'created_by', 'payment_transaction'));
     }
      function uploadPdf(Request $request)

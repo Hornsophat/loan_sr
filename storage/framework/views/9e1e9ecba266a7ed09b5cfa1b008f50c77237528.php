@@ -183,18 +183,37 @@
                         $old= $customer->age;
                         $price = 0;
                         $price *=1;
-                        $paid = $payment_transaction->amount*1;
-                        $paid_date=$payment_transaction->payment_date;
-                        $paid_day_number = AppHelper::khMultipleNumber(date('d', strtotime($paid_date)));
-                        $paid_month = AppHelper::khMonth(date('m', strtotime($paid_date)));
-                        $paid_year = AppHelper::khMultipleNumber(date('Y', strtotime($paid_date)));
-                        $paid_day_number_next='';
-                        $paid_month_next='';
-                        $paid_year_next='';
-                        $paid_date_next=$reservation->date_expire;
-                        $paid_day_number_next = AppHelper::khMultipleNumber(date('d', strtotime($paid_date_next)));
-                        $paid_month_next = AppHelper::khMonth(date('m', strtotime($paid_date_next)));
-                        $paid_year_next = AppHelper::khMultipleNumber(date('Y', strtotime($paid_date_next)));
+                        if(isset($_GET['book_detail_id']))
+                        {
+                            $paid = $payment_transaction->amount*1;
+                            $paid_date=$payment_transaction->date;
+                            $paid_day_number = AppHelper::khMultipleNumber(date('d', strtotime($paid_date)));
+                            $paid_month = AppHelper::khMonth(date('m', strtotime($paid_date)));
+                            $paid_year = AppHelper::khMultipleNumber(date('Y', strtotime($paid_date)));
+                            $paid_day_number_next='';
+                            $paid_month_next='';
+                            $paid_year_next='';
+                            $paid_date_next=$reservation->date_expire;
+                            $paid_day_number_next = AppHelper::khMultipleNumber(date('d', strtotime($paid_date_next)));
+                            $paid_month_next = AppHelper::khMonth(date('m', strtotime($paid_date_next)));
+                            $paid_year_next = AppHelper::khMultipleNumber(date('Y', strtotime($paid_date_next)));
+                        }
+                        else
+                        {
+                            $paid = $payment_transaction->amount*1;
+                            $paid_date=$payment_transaction->payment_date;
+                            $paid_day_number = AppHelper::khMultipleNumber(date('d', strtotime($paid_date)));
+                            $paid_month = AppHelper::khMonth(date('m', strtotime($paid_date)));
+                            $paid_year = AppHelper::khMultipleNumber(date('Y', strtotime($paid_date)));
+                            $paid_day_number_next='';
+                            $paid_month_next='';
+                            $paid_year_next='';
+                            $paid_date_next=$reservation->date_expire;
+                            $paid_day_number_next = AppHelper::khMultipleNumber(date('d', strtotime($paid_date_next)));
+                            $paid_month_next = AppHelper::khMonth(date('m', strtotime($paid_date_next)));
+                            $paid_year_next = AppHelper::khMultipleNumber(date('Y', strtotime($paid_date_next)));
+                        }
+                        
                         ?>
 
                         <div class="body">

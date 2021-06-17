@@ -59,7 +59,9 @@
 		<tr>
 		<td><?=date('d-F-Y', strtotime($detail->date))?></td>
 		<td><?="$".$detail->amount?></td>
-		<td><a class="btn btn-sm btn-success pull-right mb-1" href="<?php echo e(route('sale_property.print_receipt_booking', ['id'=>$reservation->id])); ?>" target="_blank"><?php echo e(__('item.receipt')); ?></a></td>
+		<td><a class="btn btn-sm btn-success pull-right mb-1" href="<?php echo e(route('sale_property.print_receipt_booking', ['id'=>$reservation->id,'book_detail_id'=>$detail->id])); ?>" target="_blank"><?php echo e(__('item.receipt')); ?></a></td>
+		<td><a class="btn btn-sm btn-info pull-right mb-1 mr-1" href="<?php echo e(route('sale_property.edit_booking_detail', ['id'=>$detail->id])); ?>"><?php echo e(__('item.edit_booking')); ?></a></td>
+		<td><a class="btn btn-sm btn-danger pull-right mb-1 mr-1" href="<?php echo e(route('sale_property.delete_booking_detail', ['id'=>$detail->id])); ?>"><?php echo e(__('item.delete')); ?></a></td>
 		</tr>
 		<?php
 	}
