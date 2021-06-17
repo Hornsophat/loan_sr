@@ -82,12 +82,12 @@
                                             <tr>
                                                 <td><?php echo e(__('item.property_id')); ?></td>
                                                 <td><?php echo e(__('item.property_name')); ?></td>
-                                                <td><?php echo e(__('item.property_no')); ?></td>
+                                                <td><?php echo e(__('item.house_number')); ?></td>
                                                 <td><?php echo e(__('item.customer')); ?></td>
                                                 <td><?php echo e(__('item.price')); ?></td>
                                                 <td><?php echo e(__('item.discount')); ?></td>
-                                                <td><?php echo e(__('item.address_street')); ?></td>
-                                                <td><?php echo e(__('item.year_of_construction')); ?></td>
+                                                
+                                                
                                                 <td><?php echo e(__('item.property_type')); ?></td>
                                                 <td><?php echo e(__('item.project_name')); ?></td>
                                                 <td><?php echo e(__('item.zone')); ?></td>
@@ -97,7 +97,6 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                           
                                             <?php $__currentLoopData = $item; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <tr>
                                                     <td><?php echo e($key+1); ?></td>
@@ -106,18 +105,20 @@
                                                     <td><?php echo e($value->customer_name); ?></td>
                                                     <td class="text-right">$<?php echo e(number_format($value->property_price*1,2)); ?></td>
                                                     <td class="text-right">$<?php echo e(number_format($value->property_discount_amount*1,2)); ?></td>
-                                                    <td><?php echo e($value->address_street); ?></td>
-                                                    <td><?php echo e($value->year_of_construction); ?></td>
+                                                    
+                                                    
                                                     <td><?php echo e(isset($value->propertyType->name) ? $value->propertyType->name : ""); ?></td>
                                                     <td><?php echo e(!is_null($value->project)?$value->project->property_name:""); ?></td>
                                                     <td><?php echo e(!is_null($value->projectZone)?$value->projectZone->name:""); ?></td>
                                                     <td>
-                                                 
                                                         <?php if($value->status==1): ?>
                                                         <?php echo "<span class='rounded p-1 badge-primary'>".__('item.available')."</span>"; ?>
 
+                                                        <?php elseif($value->status==4): ?>
+                                                        <?php echo "<span class='rounded p-1 badge-danger'>".__('item.closed')."</span>"; ?>
+
                                                         <?php elseif($value->status==2): ?>
-                                                        <a href="<?php echo e(route('sale_property.view_sale', ['property'=>$value])); ?>"><span class='rounded p-1 badge-danger'><?php echo e(__('item.sold')); ?></span></a>
+                                                        <a href="<?php echo e(route('sale_property.view_sale', ['property'=>$value])); ?>"><span class='rounded p-1 badge-success'><?php echo e(__('item.sold')); ?></span></a>
                                                         <?php elseif($value->status==3): ?>
                                                         <a onclick="view_booking(<?php echo e($value->id); ?>)" data-toggle="modal" data-target="#bookingModal" class='property_booked'><span class='rounded p-1 badge-warning'><?php echo e(__('item.booked')); ?></span></a>
                                                         <?php endif; ?>
@@ -145,6 +146,10 @@
                                                                 <?php if($value->status==1): ?>
                                                                 <a class="dropdown-item" href="<?php echo e(route('sale_property.booking',['property'=>$value])); ?>"><i class="fa  fa-book"></i><?php echo e(trans('item.property_book')); ?></a>
                                                                 <?php endif; ?>
+                                                                <?php if($value->status==4): ?>
+                                                                <a class="dropdown-item" href="<?php echo e(route('sale_property.booking',['property'=>$value])); ?>"><i class="fa  fa-book"></i><?php echo e(trans('item.property_book')); ?></a>
+                                                                <?php endif; ?>
+                                                                
                                                             <?php endif; ?>
                                                             <?php if(Auth::user()->can('add-property') || $isAdministrator): ?>
                                                             <a class="dropdown-item" href="<?php echo e(URL::to('property/' . $value->id . '/duplicate')); ?>"><i class="fa fa-plus"></i><?php echo e(trans('item.duplicate_copy')); ?></a>

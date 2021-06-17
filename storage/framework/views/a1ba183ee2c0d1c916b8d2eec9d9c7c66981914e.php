@@ -248,100 +248,18 @@
                                 </div>
 
                                 <div class="row" id="aboutContent">
-                                    <div class="col-md-10 mt-4">
+                                    <div class="col-md-10 mt-4" style="display: none">
                                         <h5><?php echo e(__('item.abouts')); ?> &emsp;<button type="button" class="btn btn-sm btn-primary" id="btnAddAbout"><i class="fa fa-plus"></i></button></h5>
                                         <hr>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-12" style="display: none">
                                         <?php echo Form::label('about[]', trans('item.about')); ?> <span class="btn btn-sm btn-outline-danger btn-remove-about"><i class="fa fa-close"></i></span>
                                         <?php echo Form::text('about[]', Input::old('about[]'), array('class' => 'form-control')); ?>
 
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="row">
-                                    <div class="col-lg-4 form-group">
-                                        <?php echo Form::label('bed_room', trans('item.bedroom')); ?>
-
-                                        <?php echo Form::number('bed_room', Input::old('bed_room'), array('class' => 'form-control')); ?>
-
-                                    </div>
-                                    <div class="col-lg-4 form-group">
-                                        <?php echo Form::label('bath_room', trans('item.bathroom')); ?>
-
-                                        <?php echo Form::number('bath_room', Input::old('bath_room'), array('class' => 'form-control')); ?>
-
-                                    </div>
-                                    <div class="col-lg-4 form-group">
-                                        <?php echo Form::label('other_room', trans('item.other_room')); ?>
-
-                                        <?php echo Form::number('other_room', Input::old('other_room'), array('class' => 'form-control')); ?>
-
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-4 form-group">
-                                        <div class="checkbox">
-                                            <label><input name="has_elevator" id="has_elevator" value="1" type="checkbox"> <?php echo e(trans('item.elevator')); ?></label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 form-group">
-                                        <div class="checkbox">
-                                            <label><input name="has_basement" id="has_basement" type="checkbox" value="1"> <?php echo e(trans('item.basement')); ?></label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 form-group">
-                                        <div class="checkbox">
-                                            <label><input name="has_swimming_pool" id="has_elevator" type="checkbox" value="1"> <?php echo e(trans('item.swimming_pool')); ?></label>
-                                        </div>
-                                    </div>
-                                </div>
-                                    <div class="row">
-                                    <div class="col-lg-3 form-group">
-                                        <?php echo Form::label('habitable_surface', trans('item.habitable_surface')); ?>
-
-                                        <?php echo Form::number('habitable_surface', Input::old('habitable_surface'), array('class' => 'form-control', 'step'=>'any')); ?>
-
-                                    </div>
-                                    <div class="col-lg-3 form-group">
-                                        <?php echo Form::label('living_room_surface', trans('item.living_room_surface')); ?>
-
-                                        <?php echo Form::number('living_room_surface', Input::old('living_room_surface'), array('class' => 'form-control', 'step'=>'any')); ?>
-
-                                    </div>
-                                    <div class="col-lg-3 form-group">
-                                        <?php echo Form::label('built_up_surface', trans('item.built_up_surface')); ?>
-
-                                        <?php echo Form::number('built_up_surface', Input::old('built_up_surface'), array('class' => 'form-control', 'step'=>'any')); ?>
-
-                                    </div>
-
-                                    <div class="col-lg-3 form-group">
-                                        <?php echo Form::label('year_of_construction', trans('item.year_of_construction')); ?>
-
-                                        <?php echo Form::number('year_of_construction', Input::old('year_of_construction'), array('class' => 'form-control')); ?>
-
-                                    </div>
-                                    <div class="col-lg-3 form-group">
-                                        <?php echo Form::label('year_of_renovation', trans('item.year_of_renovation')); ?>
-
-                                        <?php echo Form::number('year_of_renovation', Input::old('year_of_renovation'), array('class' => 'form-control')); ?>
-
-                                    </div>
-                                    <div class="col-lg-3 form-group">
-                                        <?php echo Form::label('floor_number', trans('item.floor_number')); ?>
-
-                                        <?php echo Form::number('floor_number', Input::old('floor_number'), array('class' => 'form-control')); ?>
-
-                                    </div>
-                                    <div class="col-lg-3 form-group">
-                                        <?php echo Form::label('total_number_of_floors_building', trans('item.total_number_of_floors_building')); ?>
-
-                                        <?php echo Form::number('total_number_of_floors_building', Input::old('total_number_of_floors_building'), array('class' => 'form-control')); ?>
-
-                                    </div>
-                                </div>
+                                
 
                                 <div class="form-group">
                                     <label><?php echo e(__('item.property_image')); ?>(Multiple)</label>
@@ -349,16 +267,8 @@
                                 </div>
 
                                 
-                                <div class="col-lg-12 form-group align-items-center">
-                                    <div class="map" style="height: 400px !important;" id="map_in"></div>
-                                    <div style="text-align:center; margin-top: 15px;">
-                                        <input class="btn btn-danger" id="clear_shapes" value="<?php echo e(__('item.clear_map')); ?>" type="button"  />
-                                        <input type="hidden" class="btn btn-primary" id="save_raw" type="button" />
-                                        <input type="hidden" id="restore" value="restore(IO.OUT(array,map))"         type="button" />
-                                        <input type="hidden" name="map_data" id="data" value="" style="width:100%" readonly/>
-                                    </div>
-                                </div>
-                                <?php echo Form::submit(trans('item.submit'), array('class' => 'btn btn-primary pull-right', 'id' => 'property_submit')); ?>
+                                
+                                <?php echo Form::submit(trans('item.submit'), array('class' => 'btn btn-primary pull-left', 'id' => 'property_submit')); ?>
 
 
                                 <?php echo Form::close(); ?>

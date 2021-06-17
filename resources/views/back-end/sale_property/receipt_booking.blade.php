@@ -106,13 +106,13 @@
             font-size: 12px;
         }
         p ,span{
-            color: #22228e;
+            color: black;
         }
         .p-footer, .p-footer span{
             color: white;
         }
         .p-border-bottom{
-            border-color:#22228e;
+            border-color:black;
         }
         .footer{
             font-size: 12px;
@@ -156,17 +156,17 @@
     </style>
 </head>
 <body>
-    <div style="width: 188mm; margin:auto; color: #22228e!important;">
+    <div style="width: 188mm; margin:auto; color: black !important;">
         <div class="row">
             <div class="col-md-12">
                 <div class="table-responsive">
                     <div class="content-printer clearfix" id="table_print" style="background: #a59b9b1f">
                         <div class="header">
-                            <div class="logo">
+                            <div class="logo" style="margin-left:10px">
                                 <img src="{{Setting::get('LOGO')}}" width="100%" height="100%">
                             </div>
                             <div class="title">
-                                <p style="margin-bottom: 0; font-family: Khmer OS Muol Light;">ក្រុមហ៊ុន​ រដ្ឋ ស៊ីង អចលនទ្រព្យ</p>
+                                <p style="margin-bottom: 0; font-family: Khmer OS Muol Light;margin-k">ក្រុមហ៊ុន​ រដ្ឋ ស៊ីង អចលនទ្រព្យ</p>
                                 <p class="p-border-bottom" style="font-weight:bold;display:inline-block;border-bottom:2px solid #22228e;padding-bottom:1px;">RothSing Real Estate Co,ltd</p>
                             </div>
                             <div class="title">
@@ -180,9 +180,7 @@
                             $gender = 'ប្រុស';
                         }
                         $old = '';
-                        if($customer->dob){
-                            $old = (date('Y')*1)-(date('Y', strtotime($customer->dob))*1);
-                        }
+                        $old= $customer->age;
                         $price = 0;
                         $price *=1;
                         $paid = $payment_transaction->amount*1;
@@ -204,36 +202,41 @@
                             <p class="text-justify f-kh" style="text-align: justify-all;">
                                 <span class="f-kh">ឈ្មោះអតិថិជនៈ</span>
                                 <span class="horizontal_dotted_lines" style="min-width: 170px">&nbsp;{{ $customer->last_name.' '.$customer->first_name }} </span>
+                                <br>
                                 <span class="f-kh">ឡាតាំង</span>
                                 <span class="horizontal_dotted_lines" style="min-width: 195px">&nbsp;{{ strtoupper($customer->last_name_en.' '.$customer->first_name_en) }} </span>
                                 <span class="f-kh">ភេទៈ</span>
                                 <span class="horizontal_dotted_lines" style="min-width: 60px">&nbsp;{{ $gender }} </span>
                                 <span class="f-kh">អាយុៈ</span><span class="horizontal_dotted_lines" style="min-width: 30px">&nbsp;{{$old}}</span>
                                 <span class="f-kh">ឆ្នាំ</span>
-
+                                <br>
+                                <span class="f-kh">លេខទូរស័ព្ទ &nbsp;:</span>
+                                <span class="horizontal_dotted_lines" style=";min-width: 170px">&nbsp;{{ $customer->phone1.' / '.$customer->phone2 }} </span>
+                                <br>
+                                <span class="f-kh">អាស័យដ្ឋានបច្ចុប្បន្ន​ &nbsp;:</span>
+                                <span style="min-width: 170px">&nbsp;ផ្លូវលេខ <b>{{ $customer->street_number }}</b> ផ្ទះលេខ <b>{{$customer->house_number}}</b>  ភូមិ <b> {{$address-> dis_kh}}  </b> ឃុំ/សង្កាត់ <b>{{$address->com_kh}}</b>  ​ស្រុក/ខណ្ឌ <b>{{$address->dis_kh }}</b> រាជធានី/ខេត្ត <b>{{$address->prov_name}}</b>  </span>
+                                <br>
                                 <span class="f-kh">កាន់អត្តសញ្ញាណប័ណ្ណលេខៈ</span>
                                 <span class="horizontal_dotted_lines" style="min-width: 140px">&nbsp;{{$customer->identity}}</span>
+                                <br>
                                 <span class="f-kh">បានទិញផ្ទះ/ដីឡូត៍លេខៈ</span>
                                 <span class="horizontal_dotted_lines" style="min-width: 100px">&nbsp;{{$property->property_no}}</span>
                                 {{-- <span class="f-kh">ផ្លូវលេខៈ</span>
                                 <span class="horizontal_dotted_lines" style="min-width: 70px">&nbsp;{{$property->address_number}}</span> --}}
-
+                                <br>    
                                 <span class="f-kh">គម្រោងៈ</span>
                                 <span class="horizontal_dotted_lines" style="min-width: 150px">&nbsp;{{ $project->property_name }} </span>
+                                <br>
                                 <span class="f-kh">តម្លៃផ្ទះ/ដីឡូត៍ៈ​</span>
-                                <span class="horizontal_dotted_lines" style="min-width: 120px">&nbsp;​${{ number_format($price,2) }} </span>
+                                <span class="horizontal_dotted_lines" style="min-width: 10px">&nbsp;​${{ number_format($property->property_price,2) }} </span>
                                 (
-                                <span class="horizontal_dotted_lines" style="min-width: 260px">&nbsp;​{{ AppHelper::khNumberWord($price) }}ដុល្លារអាមេរិក</span>
+                                <span class="horizontal_dotted_lines" style="min-width: 160px">&nbsp;​{{ AppHelper::khNumberWord($property->property_price) }}ដុល្លារអាមេរិក</span>
                                 )
-                                <span class="horizontal_dotted_lines" style="min-width: 120px">&nbsp;​ </span>
-                                (
-                                <span class="horizontal_dotted_lines" style="min-width: 260px">&nbsp;​ </span>
-                                )
-
+                                <br>
                                 <span class="f-kh">ទឹកប្រាក់ដែលបានកក់</span>
-                                <span class="horizontal_dotted_lines" style="min-width: 120px">&nbsp;​${{ number_format($paid,2) }} </span>
+                                <span class="horizontal_dotted_lines" style="min-width: 20px">&nbsp;​${{ number_format($paid,2) }} </span>
                                 (
-                                <span class="horizontal_dotted_lines" style="min-width: 260px">&nbsp;​{{ AppHelper::khNumberWord($paid) }}ដុល្លារអាមេរិក</span>
+                                <span class="horizontal_dotted_lines" style="min-width: 60px">&nbsp;​{{ AppHelper::khNumberWord($paid) }}ដុល្លារអាមេរិក</span>
                                 )
                                 <br>
 
@@ -273,7 +276,7 @@
                                     <span>..........................</span>
                                 </div>
                                 <div class="col-md-12" style="background: #22228e; color:white; text-align: center;">
-                                    <p class="f-kh p-footer" style="margin-bottom: 12px; margin-top: 10px;">ការិយាល័យលក់ ភូមិដំណាក់ធំ សង្កាត់ស្ទឹងមានជ័យ​ ខណ្ឌមានជ័យ​ Tel: 092 254 989 / 070 516 888</p>
+                                    <p class="f-kh p-footer" style="margin-bottom: 12px; margin-top: 10px;">ការិយាល័យលក់៖ ភូមិល្អក់ ឃុំ​​ កណ្តែក  ស្រុក ​ប្រាសាទបាគង ខេត្តសៀមរាប លេខទូរស័ព្ទ៖ 089 71 23 23 / 070 71 23 23</p>
                                 </div>
                             </div>
                         </div>

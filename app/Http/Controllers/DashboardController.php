@@ -54,8 +54,8 @@ class DashboardController extends Controller
         }
         $land = Land::where("item_type", 1)->get();
         $project = Project::where("item_type", 2)->get();
-        $projectzones = ProjectZone::where("project_id", 2)->get();
-        $propertytype = propertyType::where("id", 2)->get();
+        $propertytype = DB::table('item_types')->count();
+        $projectzones = DB::table('item_zones')->count();
         $property = Property::where("item_type", ">", 2)->get();
         $users = User::all();
         $data = SaleItem::select(

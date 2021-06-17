@@ -83,12 +83,12 @@
                                             <tr>
                                                 <td>{{ __('item.property_id') }}</td>
                                                 <td>{{ __('item.property_name') }}</td>
-                                                <td>{{ __('item.property_no') }}</td>
+                                                <td>{{ __('item.house_number') }}</td>
                                                 <td>{{ __('item.customer') }}</td>
                                                 <td>{{ __('item.price') }}</td>
                                                 <td>{{ __('item.discount') }}</td>
-                                                <td>{{ __('item.address_street') }}</td>
-                                                <td>{{ __('item.year_of_construction') }}</td>
+                                                {{-- <td>{{ __('item.address_street') }}</td> --}}
+                                                {{-- <td>{{ __('item.year_of_construction') }}</td> --}}
                                                 <td>{{ __('item.property_type') }}</td>
                                                 <td>{{ __('item.project_name') }}</td>
                                                 <td>{{ __('item.zone') }}</td>
@@ -98,7 +98,6 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                           
                                             @foreach($item as $key => $value)
                                                 <tr>
                                                     <td>{{ $key+1 }}</td>
@@ -107,17 +106,18 @@
                                                     <td>{{ $value->customer_name }}</td>
                                                     <td class="text-right">${{ number_format($value->property_price*1,2) }}</td>
                                                     <td class="text-right">${{ number_format($value->property_discount_amount*1,2) }}</td>
-                                                    <td>{{ $value->address_street }}</td>
-                                                    <td>{{ $value->year_of_construction }}</td>
+                                                    {{-- <td>{{ $value->address_street }}</td> --}}
+                                                    {{-- <td>{{ $value->year_of_construction }}</td> --}}
                                                     <td>{{ isset($value->propertyType->name) ? $value->propertyType->name : "" }}</td>
                                                     <td>{{ !is_null($value->project)?$value->project->property_name:"" }}</td>
                                                     <td>{{ !is_null($value->projectZone)?$value->projectZone->name:"" }}</td>
                                                     <td>
-                                                 
                                                         @if($value->status==1)
                                                         {!! "<span class='rounded p-1 badge-primary'>".__('item.available')."</span>" !!}
+                                                        @elseif($value->status==4)
+                                                        {!! "<span class='rounded p-1 badge-danger'>".__('item.closed')."</span>" !!}
                                                         @elseif($value->status==2)
-                                                        <a href="{{ route('sale_property.view_sale', ['property'=>$value]) }}"><span class='rounded p-1 badge-danger'>{{ __('item.sold') }}</span></a>
+                                                        <a href="{{ route('sale_property.view_sale', ['property'=>$value]) }}"><span class='rounded p-1 badge-success'>{{ __('item.sold') }}</span></a>
                                                         @elseif($value->status==3)
                                                         <a onclick="view_booking({{ $value->id }})" data-toggle="modal" data-target="#bookingModal" class='property_booked'><span class='rounded p-1 badge-warning'>{{ __('item.booked') }}</span></a>
                                                         @endif
@@ -144,6 +144,10 @@
                                                                 @if($value->status==1)
                                                                 <a class="dropdown-item" href="{{ route('sale_property.booking',['property'=>$value]) }}"><i class="fa  fa-book"></i>{{trans('item.property_book')}}</a>
                                                                 @endif
+                                                                @if($value->status==4)
+                                                                <a class="dropdown-item" href="{{ route('sale_property.booking',['property'=>$value]) }}"><i class="fa  fa-book"></i>{{trans('item.property_book')}}</a>
+                                                                @endif
+                                                                
                                                             @endif
                                                             @if(Auth::user()->can('add-property') || $isAdministrator)
                                                             <a class="dropdown-item" href="{{ URL::to('property/' . $value->id . '/duplicate') }}"><i class="fa fa-plus"></i>{{trans('item.duplicate_copy')}}</a>

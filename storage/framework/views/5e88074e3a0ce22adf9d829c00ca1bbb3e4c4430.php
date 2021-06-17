@@ -13,43 +13,43 @@
 
     <!-- Report -->
     <div class="row">
-      <div>
+      <div  class="col-md-3">
         <a href="<?php echo e(URL::to('projectzone/index')); ?>" class="btn btn-small ">
         <div class="widget-small primary coloured-icon"><i class="icon fa fa-globe fa-2x"></i>
           <div class="info">
             <h4><?php echo e(__('item.project_zone')); ?></h4>
-            <p><b><?php echo e($projectzones->count()); ?></b></p>
+            <p><b><?php echo e($projectzones); ?></b></p>
           </div>
         </div>
         </a>
       </div>
-        <div>
+        <div  class="col-md-3">
           <a href="<?php echo e(URL::to('project')); ?>" class="btn btn-small ">
             <div class="widget-small warning coloured-icon"><i class="icon fa fa-industry fa-3x"></i>
                 <div class="info">
-                    <h4><?php echo e(__('item.project')); ?></h4>
+                    <h4><?php echo e(__('item.project')); ?></h4> 
                     <p><b><?php echo e($project->count()); ?></b></p>
                 </div>
             </div>
           </a>
         </div>
 
-      <div>
+      <div class="col-md-3">
         <a href="<?php echo e(URL::to('propertytype')); ?>" class="btn btn-small ">
         <div class="widget-small info coloured-icon"><i class="icon fa fa-home fa-3x"></i>
           <div class="info">
-            <h4><?php echo e(__('item.property')); ?></h4>
-            <p><b><?php echo e($propertytype->count()); ?></b></p>
+            <h4><?php echo e(__('item.property_type')); ?></h4>
+            <p><b><?php echo e($propertytype); ?></b></p>
           </div>
         </div>
         </a>
       </div>
 
-      <div>   
+      <div  class="col-md-3">   
         <a href="<?php echo e(URL::to('property')); ?>" class="btn btn-small" >
         <div class="widget-small danger coloured-icon"><i class="icon fa fa-university fa-3x"></i>
           <div class="info">
-            <h4><?php echo e(__('item.sale')); ?></h4>
+            <h4><?php echo e(__('item.property')); ?></h4>
             <p><b><?php echo e($property->count()); ?></b></p>
           </div>
         </div>
@@ -82,7 +82,7 @@
     <center>
     
       
-    <a href="<?php echo e(URL::to('loan_view/eoc')); ?>" class="btn btn-small " style = "margin-left:20px;">
+    <a href="<?php echo e(URL::to('loan_view/eoc')); ?>" class="btn btn-small " style = "margin-left:1px;">
       <div class="col-md-6 col-lg-3">
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-money fa-3x"></i>
             <div class="info">
@@ -93,7 +93,7 @@
         </div>
     </a>
 
-    <a href="<?php echo e(URL::to('loan_view/emi')); ?>" class="btn btn-small " style = "margin-left:20px;">
+    <a href="<?php echo e(URL::to('loan_view/emi')); ?>" class="btn btn-small " style = "margin-left:10px;">
       <div class="col-md-6 col-lg-3">
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-money fa-3x"></i>
             <div class="info">
@@ -104,7 +104,7 @@
         </div>
     </a>
 
-    <a href="<?php echo e(URL::to('loan_view/free_interest')); ?>" class="btn btn-small " style = "margin-left:20px;">
+    <a href="<?php echo e(URL::to('loan_view/free_interest')); ?>" class="btn btn-small " style = "margin-left:10px;">
       <div class="col-md-6 col-lg-3">
           <div class="widget-small warning coloured-icon"><i class="icon fa fa-money fa-3x"></i>
             <div class="info">

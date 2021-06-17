@@ -83,6 +83,7 @@
         transform: -ms-translate(-50%, -50%);"
         src="<?php echo e(asset('back-end/loading/loader.gif')); ?>">
     </div>
+    
     <body class="app sidebar-mini rtl" style="position: relative;">
         <!-- Navbar-->
         <header class="app-header"><a class="app-header__logo" href="<?php echo e(url('/')); ?>" style="padding: 0 0;line-height: 40px;">
@@ -281,11 +282,7 @@
                             <span class="title"><i class="icon fa fa-globe"></i>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo e(__('item.loan_report')); ?></span>
                         </a>
                     </li>
-                    <li>
-                        <a class="treeview-item <?php if(Route::is('land_report')): ?> active <?php endif; ?>" href="<?php echo e(route('land_report')); ?>" class="app-menu__item ">
-                            <span class="title"><i class="icon fa fa-globe"></i>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo e(__('item.land_report')); ?></span>
-                        </a>
-                    </li>
+                    
                      <li>
                         <a class="treeview-item <?php if(Route::is('project_report')): ?> active <?php endif; ?>" href="<?php echo e(route('project_report')); ?>" class="app-menu__item ">
                             <span class="title"><i class="icon fa fa-globe"></i>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo e(__('item.project_report')); ?></span>
@@ -321,11 +318,7 @@
                             <span class="title"><i class="icon fa fa-building"></i>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo e(__('item.deposit_report')); ?></span>
                         </a>
                     </li>
-                     <li>
-                        <a class="treeview-item <?php if(Route::is('receivable_report')): ?> active <?php endif; ?>" href="<?php echo e(route('receivable_report')); ?>" class="app-menu__item ">
-                            <span class="title"><i class="icon fa fa-building"></i>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo e(__('item.receivable_report')); ?></span>
-                        </a>
-                    </li>
+                     
                     <li>
                         <a class="treeview-item <?php if(Route::is('commission_report')): ?> active <?php endif; ?>" href="<?php echo e(route('commission_report')); ?>" class="app-menu__item ">
                             <span class="title"><i class="icon fa fa-building"></i> <?php echo e(__('item.commission_report')); ?></span>
@@ -336,16 +329,7 @@
                             <span class="title"><i class="icon fa fa-building"></i> <?php echo e(__('item.expense_report')); ?></span>
                         </a>
                     </li>
-                    <li>
-                        <a class="treeview-item <?php if(Route::is('purchase_report')): ?> active <?php endif; ?>" href="<?php echo e(route('purchase_report')); ?>" class="app-menu__item ">
-                            <span class="title"><i class="icon fa fa-building"></i> <?php echo e(__('item.purchase_report')); ?></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="treeview-item <?php if(Route::is('purchase_detail_report')): ?> active <?php endif; ?>" href="<?php echo e(route('purchase_detail_report')); ?>" class="app-menu__item ">
-                            <span class="title"><i class="icon fa fa-building"></i><?php echo e(__('item.purchase_detail_report')); ?></span>
-                        </a>
-                    </li>
+                    
                 </ul>
             </li>
             <?php if(Auth::user()->can('settings') || $isAdministrator || Auth::user()->can('public_holidays') || Auth::user()->can('penalties')): ?>

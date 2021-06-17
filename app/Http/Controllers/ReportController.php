@@ -437,7 +437,9 @@ class ReportController extends Controller
         $items = SaleItem::select(DB::raw('
             sale_items.*,
             (total_price - discount_amount) as grand_totals,
-            items.property_name as property_name,            
+            items.property_name as property_name,  
+            items.property_price as property_price,
+            items.property_no,          
             CONCAT(employees.last_name, " ", employees.first_name) as employee_name,
             CONCAT(customers.last_name, " ",customers.first_name) as customer_name,
             projects.property_name as project_name

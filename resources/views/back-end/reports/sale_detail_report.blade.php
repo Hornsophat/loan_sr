@@ -51,7 +51,11 @@
 										<option value="">All</option>
 										<option value="sold" {{ isset($_GET['filter_status']) && $_GET['filter_status'] == 'sold'?"selected":"" }}>Sold</option>
 										<option value="completed" {{ isset($_GET['filter_status']) && $_GET['filter_status'] == 'completed'?"selected":"" }}>Completed</option>
+<<<<<<< HEAD
 										{{-- <option value="cancel" {{ isset($_GET['filter_status']) && $_GET['filter_status'] == 'cancel'?"selected":"" }}>Cancel</option> --}}
+=======
+										<option value="cancel" {{ isset($_GET['filter_status']) && $_GET['filter_status'] == 'cancel'?"selected":"" }}>Cancel</option>
+>>>>>>> 873df8ab12f7c93aa53d5fbcf73b57e4942a78cd
 									</select>
 								</div>
 								<div class="col-md-6 col-lg-3">
@@ -80,6 +84,7 @@
 							
 						</div>
 						<div id="table_print">
+<<<<<<< HEAD
 						<div class="text-success display_message text-center"></div><br>
 						<div class="row">
 							<div class="col-sm-4 col-md-4"><img src="{{Setting::get('LOGO')}}" style="height: 50px;margin-bottom: 20px;"></div>
@@ -87,6 +92,17 @@
 						<div class="row">
 							<div class="col-md-12 text-center">
 								<h3 style="text-transform: uppercase;">{{ __('item.sale_detail_report') }}</h3>
+=======
+						{{-- <div class="text-success display_message text-center"></div><br> --}}
+							<div style="margin-left: 150px;"><img src="{{Setting::get('LOGO')}}" style="height:150px;margin-bottom: 20px;"></div>
+							<center>
+								<div style="font-family: Khmer OS Muol light;font-size:20px;margin-top:-150px">ក្រុមហ៊ុន រដ្ឋ ស៊ីង អចលនទ្រព្យ</div>
+								<div style="font-family: Khmer OS Muol light;font-size:20px;font-weight:bold">RothSing Real Estate Co,ltd</div>
+							</center>	
+						<div class="row mt-4">
+							<div class="col-md-12 text-center">
+								<h3 style="text-transform: uppercase;font-size:16px">{{ __('item.sale_detail_report') }}</h3>
+>>>>>>> 873df8ab12f7c93aa53d5fbcf73b57e4942a78cd
 							</div>
 						</div>
 						{{-- <div class="row">
@@ -109,6 +125,7 @@
 					                    <th class="text-center">ថ្ងៃខែឆ្នាំ​ បញ្ចាំ</th>
 										<th class="text-center">ឈ្មោះអតិថិជន</th>
 					                    <th class="text-center">លេខ</th>
+<<<<<<< HEAD
 					                    <th class="text-center">សរុប</th>
 					                    <th class="text-center">តម្លៃលក់សរុប</th>
 					                    <th class="text-center">ប្រាក់ដែលបានកក់</th>
@@ -116,6 +133,15 @@
 					                    <th class="text-center">ប្រាក់ដែលនៅសល់</th>
 					                    <th class="text-center">បង់លើកទី</th>
 					                    <th class="text-center">ថ្ងៃរំលស់</th>
+=======
+					                    {{-- <th class="text-center">សរុប</th> --}}
+					                    <th class="text-center">តម្លៃលក់សរុប</th>
+					                    <th class="text-center">ប្រាក់ដែលបានកក់</th>
+					                    {{-- <th class="text-center">ប្រាក់ដែលបានបង់</th> --}}
+					                    <th class="text-center">ប្រាក់ដែលនៅសល់</th>
+					                    <th class="text-center">បង់លើកទី</th>
+					                    {{-- <th class="text-center">ថ្ងៃរំលស់</th> --}}
+>>>>>>> 873df8ab12f7c93aa53d5fbcf73b57e4942a78cd
 					                    <th class="text-center">ផ្សេងៗ</th>
 				                  	</tr>
 				                </thead>
@@ -128,6 +154,7 @@
 												<td>&nbsp;</td>
 												<td>&nbsp;</td>
 												<td>&nbsp;</td>
+<<<<<<< HEAD
 												<td>&nbsp;</td>
 												<td>&nbsp;</td>
 												<td>&nbsp;</td>
@@ -135,6 +162,15 @@
 												<td>&nbsp;</td>
 												<td>&nbsp;</td>
 												<td>&nbsp;</td>
+=======
+												{{-- <td>&nbsp;</td> --}}
+												<td>&nbsp;</td>
+												<td>&nbsp;</td>
+												{{-- <td>&nbsp;</td> --}}
+												<td>&nbsp;</td>
+												<td>&nbsp;</td>
+												{{-- <td>&nbsp;</td> --}}
+>>>>>>> 873df8ab12f7c93aa53d5fbcf73b57e4942a78cd
 												<td>&nbsp;</td>
 											</tr>
 											<tr>
@@ -142,6 +178,7 @@
 												<td>&nbsp;</td>
 												<td>&nbsp;</td>
 												<td>&nbsp;</td>
+<<<<<<< HEAD
 												<td>&nbsp;</td>
 												<td>&nbsp;</td>
 												<td>&nbsp;</td>
@@ -149,6 +186,15 @@
 												<td>&nbsp;</td>
 												<td>&nbsp;</td>
 												<td>&nbsp;</td>
+=======
+												{{-- <td>&nbsp;</td> --}}
+												<td>&nbsp;</td>
+												<td>&nbsp;</td>
+												{{-- <td>&nbsp;</td> --}}
+												<td>&nbsp;</td>
+												<td>&nbsp;</td>
+												{{-- <td>&nbsp;</td> --}}
+>>>>>>> 873df8ab12f7c93aa53d5fbcf73b57e4942a78cd
 												<td>&nbsp;</td>
 											</tr>
 											<tr>
@@ -156,6 +202,7 @@
 												<td>សរុបប្រាក់ដែលបានបង់</td>
 												<td class="text-right">{{$item['total_paid']}}</td>
 												<td></td>
+<<<<<<< HEAD
 												<td></td>
 												<td></td>
 												<td></td>
@@ -171,12 +218,30 @@
 												<td></td>
 											</tr>
 											<tr><td colspan="11">&nbsp;</td></tr>
+=======
+												{{-- <td></td>
+												<td></td>
+												<td></td> --}}
+											</tr>
+											@elseif(!empty($item['total_outstanding_amount']))
+											<tr>
+												<td colspan="3"></td>
+												<td >សរុបប្រាក់ដើមដែលនៅសល់</td>
+												<td class="text-right">{{$item['total_outstanding_amount']}}</td>
+												<td></td>
+												{{-- <td></td> --}}
+												{{-- <td></td>
+												<td></td> --}}
+											</tr>
+											<tr><td colspan="9">&nbsp;</td></tr>
+>>>>>>> 873df8ab12f7c93aa53d5fbcf73b57e4942a78cd
 											@else
 											<tr>
 												<td>{{$item['no']}}</td>
 												<td>{{$item['sale_date']}}</td>
 												<td>{{$item['customer_name']}}</td>
 												<td>{{$item['property_number']}}</td>
+<<<<<<< HEAD
 												<td>{{$item['total_property']}}</td>
 												<td class="text-right">{{$item['total_sale_amount']}}</td>
 												<td class="text-right">{{$item['deposit']}}</td>
@@ -184,6 +249,15 @@
 												<td></td>
 												<td class="text-center">{{$item['payment_order']}}</td>
 												<td class="text-center">{{$item['pay_date']}}</td>
+=======
+												{{-- <td>{{$item['total_property']}}</td> --}}
+												<td class="text-right">{{$item['total_sale_amount']}}</td>
+												<td class="text-right">{{$item['deposit']}}</td>
+												{{-- <td class="text-right">{{$item['paid']}}</td> --}}
+												<td></td>
+												<td class="text-center">{{$item['payment_order']}}</td>
+												{{-- <td class="text-center">{{$item['pay_date']}}</td> --}}
+>>>>>>> 873df8ab12f7c93aa53d5fbcf73b57e4942a78cd
 												<td></td>
 											</tr>
 											@endif
@@ -198,27 +272,45 @@
 										<td style="font-weight: bold">សរុបប្រាក់ដែលបានលក់ទាំងអស់</td>
 										<td class="text-right">${{number_format($data_total['total_price'],2)}}</td>
 										<td></td>
+<<<<<<< HEAD
 										<td></td>
 										<td></td>
 										<td></td>
+=======
+										{{-- <td></td>
+										<td></td>
+										<td></td> --}}
+>>>>>>> 873df8ab12f7c93aa53d5fbcf73b57e4942a78cd
 									</tr>
 									<tr>
 										<td colspan="6"></td>
 										<td style="font-weight: bold">សរុបប្រាក់ដែលបានបង់ទាំងអស់</td>
 										<td class="text-right">${{number_format($data_total['total_paid'],2)}}</td>
 										<td></td>
+<<<<<<< HEAD
 										<td></td>
 										<td></td>
 										<td></td>
+=======
+										{{-- <td></td>
+										<td></td>
+										<td></td> --}}
+>>>>>>> 873df8ab12f7c93aa53d5fbcf73b57e4942a78cd
 									</tr>
 									<tr>
 										<td colspan="6"></td>
 										<td style="font-weight: bold">សរុបប្រាក់ដើមដែលនៅសល់ទាំងអស់</td>
 										<td class="text-right">${{number_format($data_total['total_outstanding_amount'],2)}}</td>
 										<td></td>
+<<<<<<< HEAD
 										<td></td>
 										<td></td>
 										<td></td>
+=======
+										{{-- <td></td>
+										<td></td>
+										<td></td> --}}
+>>>>>>> 873df8ab12f7c93aa53d5fbcf73b57e4942a78cd
 									</tr>
 									@endif
 				                </tbody>

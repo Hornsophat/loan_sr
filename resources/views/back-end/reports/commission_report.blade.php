@@ -62,6 +62,7 @@
 						</div>
 						<div id="table_print">
 							<div class="text-success display_message text-center"></div><br>
+<<<<<<< HEAD
 							<div class="row">
 								<div class="col-sm-4 col-md-4"><img src="{{Setting::get('LOGO')}}" style="height: 50px;margin-bottom: 20px;"></div>
 							</div>
@@ -71,15 +72,40 @@
 								</div>
 							</div>
 							<br>
+=======
+							<div style="margin-left: 150px;"><img src="{{Setting::get('LOGO')}}" style="height:150px;margin-bottom: 20px;"></div>
+							<center>
+								<div style="font-family: Khmer OS Muol light;font-size:20px;margin-top:-150px">ក្រុមហ៊ុន រដ្ឋ ស៊ីង អចលនទ្រព្យ</div>
+								<div style="font-family: Khmer OS Muol light;font-size:20px;font-weight:bold">RothSing Real Estate Co,ltd</div>
+							</center>	
+
+							<div class="row">
+								<div class="col-md-12 text-center mt-4">
+									<h3 style="font-size:16px">{{ __('item.commission_report') }}</h3>
+								</div>
+							</div>
+							<br>
+							<br>
+							<br>
+>>>>>>> 873df8ab12f7c93aa53d5fbcf73b57e4942a78cd
 							<div class="table-responsive">
 								<table class="table table-hover table-bordered">
 					                <thead>
 					                  	<tr>
 						                    <th width="70" class="text-center">{{ __('item.no') }}</th>
+<<<<<<< HEAD
 						                    <th class="text-center">{{ __('item.reference') }}</th>
 						                    <th class="text-center">{{ __('item.sale_date') }}</th>
 											<th class="text-center">{{ __('item.project_name') }}</th>
 											<th class="text-center">{{ __('item.property_name') }}</th>
+=======
+						                    {{-- <th class="text-center">{{ __('item.reference') }}</th> --}}
+											<th class="text-center">{{ __('item.house_number') }}</th>
+						                    <th class="text-center">{{ __('item.sale_date') }}</th>
+											<th class="text-center">{{ __('item.project_name') }}</th>
+											<th class="text-center">{{ __('item.property_name') }}</th>
+											<th class="text-center">{{ __('តម្លៃអចលនទ្រព្យ') }}</th>
+>>>>>>> 873df8ab12f7c93aa53d5fbcf73b57e4942a78cd
 						                    <th class="text-center">{{ __('item.employee') }}</th>	
 						                    <th class="text-center">{{ __('item.commission') }}</th>
 					                  	</tr>
@@ -94,16 +120,29 @@
 				                			@endphp
 						                	<tr>
 							                    <td class="text-center">{{ $loop->iteration }}</td>
+<<<<<<< HEAD
 							                    <td class="text-center">{{ $item->reference }}</td>
 							                    <td class="text-center">{{ date("d-M-Y", strtotime($item->sale_date)) }}</td>
 												<td class="text-center">{{ $item->project_name }}</td>
 												<td class="text-center">{{ $item->property_name }}</td>
+=======
+												<td class="text-center">{{ $item->property_no }}</td>
+							                    {{-- <td class="text-center">{{ $item->reference }}</td> --}}
+							                    <td class="text-center">{{ date("d-M-Y", strtotime($item->sale_date)) }}</td>
+												<td class="text-center">{{ $item->project_name }}</td>
+												<td class="text-center">{{ $item->property_name }}</td>
+												<td class="text-center">$ {{ $item->property_price }}</td>
+>>>>>>> 873df8ab12f7c93aa53d5fbcf73b57e4942a78cd
 							                    <td class="text-center">{{ $item->employee_name }}</td>
 							                    <td class="text-center">{{ "$ ". number_format($item->commission_amount,2) }}</td>
 							                </tr>
 						                @endforeach
 						                <tr>
+<<<<<<< HEAD
 						                	<td colspan="6" class="text-right">{{ __('item.total') }}</td>
+=======
+						                	<td colspan="7" class="text-center">{{ __('item.total') }}</td>
+>>>>>>> 873df8ab12f7c93aa53d5fbcf73b57e4942a78cd
 						                	<td class="text-center">{{ "$ ". number_format($total,2) }}</td>
 						                </tr>
 					                </tbody>

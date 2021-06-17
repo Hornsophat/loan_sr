@@ -14,43 +14,43 @@
 
     <!-- Report -->
     <div class="row">
-      <div>
+      <div  class="col-md-3">
         <a href="{{ URL::to('projectzone/index')}}" class="btn btn-small ">
         <div class="widget-small primary coloured-icon"><i class="icon fa fa-globe fa-2x"></i>
           <div class="info">
             <h4>{{ __('item.project_zone') }}</h4>
-            <p><b>{{ $projectzones->count() }}</b></p>
+            <p><b>{{ $projectzones}}</b></p>
           </div>
         </div>
         </a>
       </div>
-        <div>
+        <div  class="col-md-3">
           <a href="{{ URL::to('project')}}" class="btn btn-small ">
             <div class="widget-small warning coloured-icon"><i class="icon fa fa-industry fa-3x"></i>
                 <div class="info">
-                    <h4>{{ __('item.project') }}</h4>
+                    <h4>{{ __('item.project') }}</h4> 
                     <p><b>{{ $project->count() }}</b></p>
                 </div>
             </div>
           </a>
         </div>
 
-      <div>
+      <div class="col-md-3">
         <a href="{{ URL::to('propertytype')}}" class="btn btn-small ">
         <div class="widget-small info coloured-icon"><i class="icon fa fa-home fa-3x"></i>
           <div class="info">
-            <h4>{{ __('item.property') }}</h4>
-            <p><b>{{ $propertytype->count() }}</b></p>
+            <h4>{{ __('item.property_type') }}</h4>
+            <p><b>{{ $propertytype }}</b></p>
           </div>
         </div>
         </a>
       </div>
 
-      <div>   
+      <div  class="col-md-3">   
         <a href="{{ URL::to('property')}}" class="btn btn-small" >
         <div class="widget-small danger coloured-icon"><i class="icon fa fa-university fa-3x"></i>
           <div class="info">
-            <h4>{{ __('item.sale') }}</h4>
+            <h4>{{ __('item.property') }}</h4>
             <p><b>{{ $property->count() }}</b></p>
           </div>
         </div>
@@ -126,7 +126,7 @@
         </div>
     </a> --}}
       
-    <a href="{{ URL::to('loan_view/eoc')}}" class="btn btn-small " style = "margin-left:20px;">
+    <a href="{{ URL::to('loan_view/eoc')}}" class="btn btn-small " style = "margin-left:1px;">
       <div class="col-md-6 col-lg-3">
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-money fa-3x"></i>
             <div class="info">
@@ -137,7 +137,7 @@
         </div>
     </a>
 
-    <a href="{{ URL::to('loan_view/emi')}}" class="btn btn-small " style = "margin-left:20px;">
+    <a href="{{ URL::to('loan_view/emi')}}" class="btn btn-small " style = "margin-left:10px;">
       <div class="col-md-6 col-lg-3">
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-money fa-3x"></i>
             <div class="info">
@@ -148,7 +148,7 @@
         </div>
     </a>
 
-    <a href="{{ URL::to('loan_view/free_interest')}}" class="btn btn-small " style = "margin-left:20px;">
+    <a href="{{ URL::to('loan_view/free_interest')}}" class="btn btn-small " style = "margin-left:10px;">
       <div class="col-md-6 col-lg-3">
           <div class="widget-small warning coloured-icon"><i class="icon fa fa-money fa-3x"></i>
             <div class="info">

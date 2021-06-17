@@ -25,7 +25,7 @@
 			<td>{{ $reservation->customer_name }}</td>
 		</tr>
 		<tr>
-			<td>{{ __('item.project') }}</td>
+			<td>{{ __('item.property_type') }}</td>
 			<td>{{ $property['project']['property_name'] }}</td>
 		</tr>
 		<tr>

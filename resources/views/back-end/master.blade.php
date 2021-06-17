@@ -83,6 +83,7 @@
         transform: -ms-translate(-50%, -50%);"
         src="{{ asset('back-end/loading/loader.gif') }}">
     </div>
+    
     <body class="app sidebar-mini rtl" style="position: relative;">
         <!-- Navbar-->
         <header class="app-header"><a class="app-header__logo" href="{{ url('/') }}" style="padding: 0 0;line-height: 40px;">
@@ -304,11 +305,11 @@
                             <span class="title"><i class="icon fa fa-globe"></i>&nbsp;&nbsp;&nbsp;&nbsp;{{ __('item.loan_report') }}</span>
                         </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a class="treeview-item @if(Route::is('land_report')) active @endif" href="{{ route('land_report') }}" class="app-menu__item ">
                             <span class="title"><i class="icon fa fa-globe"></i>&nbsp;&nbsp;&nbsp;&nbsp;{{ __('item.land_report') }}</span>
                         </a>
-                    </li>
+                    </li> --}}
                      <li>
                         <a class="treeview-item @if(Route::is('project_report')) active @endif" href="{{ route('project_report') }}" class="app-menu__item ">
                             <span class="title"><i class="icon fa fa-globe"></i>&nbsp;&nbsp;&nbsp;&nbsp;{{ __('item.project_report') }}</span>
@@ -344,11 +345,11 @@
                             <span class="title"><i class="icon fa fa-building"></i>&nbsp;&nbsp;&nbsp;&nbsp;{{ __('item.deposit_report') }}</span>
                         </a>
                     </li>
-                     <li>
+                     {{-- <li>
                         <a class="treeview-item @if(Route::is('receivable_report')) active @endif" href="{{ route('receivable_report') }}" class="app-menu__item ">
                             <span class="title"><i class="icon fa fa-building"></i>&nbsp;&nbsp;&nbsp;&nbsp;{{ __('item.receivable_report') }}</span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li>
                         <a class="treeview-item @if(Route::is('commission_report')) active @endif" href="{{ route('commission_report') }}" class="app-menu__item ">
                             <span class="title"><i class="icon fa fa-building"></i> {{ __('item.commission_report') }}</span>
@@ -359,7 +360,7 @@
                             <span class="title"><i class="icon fa fa-building"></i> {{ __('item.expense_report') }}</span>
                         </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a class="treeview-item @if(Route::is('purchase_report')) active @endif" href="{{ route('purchase_report') }}" class="app-menu__item ">
                             <span class="title"><i class="icon fa fa-building"></i> {{ __('item.purchase_report') }}</span>
                         </a>
@@ -368,7 +369,7 @@
                         <a class="treeview-item @if (Route::is('purchase_detail_report')) active @endif" href="{{ route('purchase_detail_report') }}" class="app-menu__item ">
                             <span class="title"><i class="icon fa fa-building"></i>{{ __('item.purchase_detail_report') }}</span>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li>
             @if(Auth::user()->can('settings') || $isAdministrator || Auth::user()->can('public_holidays') || Auth::user()->can('penalties'))
