@@ -1,4 +1,5 @@
 <a class="btn btn-sm btn-success pull-right mb-1" href="{{ route('sale_property.print_receipt_booking', ['id'=>$reservation->id]) }}" target="_blank">{{ __('item.receipt') }}</a>
+<a class="btn btn-sm btn-info pull-right mb-1 mr-1" href="{{ route('sale_property.add_booking', ['id'=>$reservation->id]) }}">{{ __('item.add_new') }}</a>
 <a class="btn btn-sm btn-info pull-right mb-1 mr-1" href="{{ route('sale_property.edit_booking', ['id'=>$reservation->id]) }}">{{ __('item.edit_booking') }}</a>
 @if($reservation->status=='booked' && $property['status']==3)
 	@if(date('Y-m-d', strtotime($reservation->date_expire)) < date('Y-m-d'))
@@ -7,6 +8,7 @@
 	<a class="btn btn-sm btn-danger pull-right mr-1" onclick="return confirm(`{{ __('item.confirm_delete_booking') }}`) " href="{{ route('sale_property.delete_booking', ['id'=>$reservation->id]) }}">{{ __('item.delete') }}</a>
 @endif
 <table class="table">
+
 	<tbody>
 		<tr>
 			<td>{{ __('item.code') }}</td>
@@ -41,4 +43,27 @@
 			<td>${{ number_format($reservation->amount*1,2) }}</td>
 		</tr>
 	</tbody>
+	
+	<tfoot>
+	<tr><center><td colspan="2"><br>Payment Detail</br></td></center></tr>
+	<tr>
+	<td><?=date('d-F-Y', strtotime($reservation->created_at))?></td>
+	<td><?="$".$first_deposit?></td>
+	<td><a class="btn btn-sm btn-success pull-right mb-1" href="{{ route('sale_property.print_receipt_booking', ['id'=>$reservation->id]) }}" target="_blank">{{ __('item.receipt') }}</a></td>
+	</tr>
+	<?php
+	
+	foreach($book_details as $detail)
+	{
+		?>
+		<tr>
+		<td><?=date('d-F-Y', strtotime($detail->date))?></td>
+		<td><?="$".$detail->amount?></td>
+		<td><a class="btn btn-sm btn-success pull-right mb-1" href="{{ route('sale_property.print_receipt_booking', ['id'=>$reservation->id]) }}" target="_blank">{{ __('item.receipt') }}</a></td>
+		</tr>
+		<?php
+	}
+	?>
+	
+	</tfoot>
 </table>

@@ -240,6 +240,7 @@ Route::middleware(['auth'])->group(function () {
     //================= Sale Property =====================
     Route::match(['get', 'post'],'property/booking/{property}', 'SalePropertyController@booking')->name('sale_property.booking');
     Route::match(['get', 'post'],'property/edit_booking/{id}', 'SalePropertyController@edit_booking')->name('sale_property.edit_booking');
+    Route::match(['get', 'post'],'property/add_booking/{id}', 'SalePropertyController@add_booking')->name('sale_property.add_booking');
     Route::match(['get', 'post'],'property/delete_booking/{id}', 'SalePropertyController@delete_booking')->name('sale_property.delete_booking');
     Route::match(['get', 'post'],'property/expire_booking/{id}', 'SalePropertyController@expire_booking')->name('sale_property.expire_booking');
     Route::get('property/view_booking', 'SalePropertyController@view_booking')->name('sale_property.view_booking');

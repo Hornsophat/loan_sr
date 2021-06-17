@@ -484,6 +484,8 @@ return [
     'error_delete' => 'Delete Failed',
     'success_delete' => 'Deleted SuccessFully',
     'edit_booking' => 'Edit Booking',
+    'add_new' => 'Add New',
+    'add_booking' => 'Add Booking',
     'not_found' => 'Not Found!!!',
     'error_edit_booking' => 'Edit booking failed!!!',
     'success_edit_booking' =>'Edit Booking SuccessFully',

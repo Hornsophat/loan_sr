@@ -109,8 +109,14 @@ class SalePropertyController extends Controller
     ->leftJoin('customers', 'customers.id', '=', 'reservations.customer_id')
     ->latest()
     ->first();
+    $book_details = DB::table('book_details')->where(array(
+        'reservation_id'=>$reservation->id
+        ))->get();
     $payment_transaction = PaymentTransaction::where('reservation_id', '=', $reservation->id)->first();
-    $data['html'] = ''.View::make('back-end.sale_property.view_booking', compact('property', 'reservation', 'payment_transaction'));
+
+      //get first deposit
+      $first_deposit = $reservation->amount - DB::table('book_details')->where('reservation_id',$reservation->id)->sum('amount');
+    $data['html'] = ''.View::make('back-end.sale_property.view_booking', compact('first_deposit','book_details','property', 'reservation', 'payment_transaction'));
     return $data;
     }
     function edit_booking(Request $request, $id){
@@ -196,6 +202,53 @@ class SalePropertyController extends Controller
         return redirect()->route('property')->with('message', __('item.success_edit_booking'));
     }
     }
+
+    function add_booking(Request $request, $id){
+        if(!Auth::user()->can('booking-propery') && !AppHelper::checkAdministrator())
+        return view('back-end.common.no-permission');
+        $reservation = Reservation::find($id);
+        if(!$reservation){
+            return redirect()->back()->with('error-message', __('item.not_found'));
+        }
+        $property = Property::find($reservation->property_id);
+        if(!$property){
+            return redirect()->back()->with('error-message', __('item.not_found'));
+        }
+        if($reservation->status!='booked' || $property->status!=Config::get('app.property_status_booked')){
+            return redirect()->back()->with('error-message', __('item.error_edit_booking'));
+        }
+        if($request->method()=='GET'){
+          
+            $cus = Customer::get();
+            $customers[null] = "-- ".__('item.select')." ".__('item.customer')." --";
+            foreach ($cus as $key => $value) {
+                $customers[$value->id] = $value->customer_no." | ".$value->last_name." ".$value->first_name;
+            }
+            $payment_transaction = PaymentTransaction::where('reservation_id', '=', $reservation->id)->first();
+            return view('back-end.sale_property.add_booking', compact('property',  'customers', 'reservation', 'payment_transaction'));
+        }elseif($request->method()=='POST'){
+            $this->validate($request,[
+                'date' => 'required|date',
+                'deposit' => 'required|numeric|min:0',
+            ]);
+
+            //add to book detail
+           DB::table('book_details')->insert([
+                'amount'=>$request->deposit,
+                'reservation_id'=>$id,
+                'date'=>date('Y-m-d', strtotime($request->date)),
+            ]);
+
+            $reservation = DB::table('reservations')->where('id',$id)->update([
+                'amount'=>$reservation->amount+$request->deposit,
+                'date_booked'=>date('Y-m-d', strtotime($request->date))
+            ]);
+           
+            return redirect()->route('property')->with('message', __('item.success_add_booking'));
+        }
+    }
+
+
     function delete_booking($id){
     	if(!Auth::user()->can('booking-propery') && !AppHelper::checkAdministrator())
             return view('back-end.common.no-permission');
