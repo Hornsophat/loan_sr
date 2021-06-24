@@ -279,7 +279,12 @@
 													<ul>
 														<li><b>&emsp;គូភាគីបានព្រមព្រៀងគ្នាទូទាត់ប្រាក់ថ្លៃលក់ទិញជាដំណាក់កាលដូចខាងក្រោម៖</b>
 														</li>
-														
+																<?php
+									//datetime next 
+								$datefirst=$loan->loan_date;
+								$loanterm=$loan->installment_term;
+								$effectiveDate = date('Y-m-d', strtotime("+$loanterm month", strtotime($datefirst)));						
+									?>
 														<?php 
 														$loan_count = count($loans);
 														if($sale->deposit<=0)
@@ -330,7 +335,7 @@
 																?>
 																	<tr>
 																		<td align="left" style="font-family: 'Khmer OS system">
-																	&emsp;&emsp; <b>៤.១.{{AppHelper::khMultipleNumber($i)}}.	ដំណាក់កាលទី {{AppHelper::khMultipleNumber($i)}}</b> ៖ ភាគី “ខ” នឹងបង់ប្រាក់ដែលនៅសល់បង្រ្គប់ចំនួន $ <b>{{ number_format( $loan->loan_amount,2) }} </b>  <b>(​{{ AppHelper::khNumberWord( $loan->loan_amount) }}) ដុល្លារអាមេរិកគត់</b> ឲ្យទៅភាគី “ក” នៅថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime($loan->loan_date)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime($loan->loan_date)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($loan->loan_date)))}}</b> ហើយភាគី “ក” ត្រូវបញ្ចប់ការសាងសង់ និងកាត់ឈ្មោះផ្ទេរកម្មសិទ្ធិរួចរាល់ជាស្ថាពរឲ្យទៅភាគី“ខ” ហើយភាគី “ក” ត្រូវប្រគល់ប័ណ្ណកម្មសិទ្ធិដែលបានផ្ទេរសិទ្ធិទៅភាគី “ខ” រួចរាល់នោះ ឲ្យទៅភាគី “ខ” ។
+																	&emsp;&emsp; <b>៤.១.{{AppHelper::khMultipleNumber($i)}}.	ដំណាក់កាលទី {{AppHelper::khMultipleNumber($i)}}</b> ៖ ភាគី “ខ” នឹងបង់ប្រាក់ដែលនៅសល់បង្រ្គប់ចំនួន $ <b>{{ number_format( $loan->loan_amount,2) }} </b>  <b>(​{{ AppHelper::khNumberWord( $loan->loan_amount) }}) ដុល្លារអាមេរិកគត់</b> ឲ្យទៅភាគី “ក” នៅថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime(	$effectiveDate)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime(	$effectiveDate)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime(	$effectiveDate)))}}</b> ហើយភាគី “ក” ត្រូវបញ្ចប់ការសាងសង់ និងកាត់ឈ្មោះផ្ទេរកម្មសិទ្ធិរួចរាល់ជាស្ថាពរឲ្យទៅភាគី“ខ” ហើយភាគី “ក” ត្រូវប្រគល់ប័ណ្ណកម្មសិទ្ធិដែលបានផ្ទេរសិទ្ធិទៅភាគី “ខ” រួចរាល់នោះ ឲ្យទៅភាគី “ខ” ។
 																		</td>
 																	</tr>
 																<?php
@@ -703,7 +708,7 @@
 																?>
 																	<tr>
 																		<td align="left" style="font-family: 'Khmer OS system">
-																	&emsp;&emsp; <b>១.{{AppHelper::khMultipleNumber($i)}}.	ដំណាក់កាលទី {{AppHelper::khMultipleNumber($i)}}</b> ៖ ភាគី “ខ” នឹងបង់ប្រាក់ដែលនៅសល់បង្រ្គប់ចំនួន $ <b>{{ number_format( $loan->loan_amount,2) }} </b>  <b>(​{{ AppHelper::khNumberWord($loan->loan_amount) }}) ដុល្លារអាមេរិកគត់</b> ឲ្យទៅភាគី “ក” នៅថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime($loan->loan_date)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime($loan->loan_date)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime($loan->loan_date)))}}</b> ហើយភាគី “ក” ត្រូវបញ្ចប់ការសាងសង់ និងកាត់ឈ្មោះផ្ទេរកម្មសិទ្ធិរួចរាល់ជាស្ថាពរឲ្យទៅភាគី“ខ” ហើយភាគី “ក” ត្រូវប្រគល់ប័ណ្ណកម្មសិទ្ធិដែលបានផ្ទេរសិទ្ធិទៅភាគី “ខ” រួចរាល់នោះ ឲ្យទៅភាគី “ខ” ។
+																	&emsp;&emsp; <b>១.{{AppHelper::khMultipleNumber($i)}}.	ដំណាក់កាលទី {{AppHelper::khMultipleNumber($i)}}</b> ៖ ភាគី “ខ” នឹងបង់ប្រាក់ដែលនៅសល់បង្រ្គប់ចំនួន $ <b>{{ number_format( $loan->loan_amount,2) }} </b>  <b>(​{{ AppHelper::khNumberWord($loan->loan_amount) }}) ដុល្លារអាមេរិកគត់</b> ឲ្យទៅភាគី “ក” នៅថ្ងៃទី<b>{{AppHelper::khMultipleNumber(date('d', strtotime(	$effectiveDate)))}} </b>ខែ <b>{{AppHelper::khMonth(date('m', strtotime(	$effectiveDate)))}}</b>  ឆ្នាំ <b>{{AppHelper::khMultipleNumber(date('Y', strtotime(	$effectiveDate)))}}</b> ហើយភាគី “ក” ត្រូវបញ្ចប់ការសាងសង់ និងកាត់ឈ្មោះផ្ទេរកម្មសិទ្ធិរួចរាល់ជាស្ថាពរឲ្យទៅភាគី“ខ” ហើយភាគី “ក” ត្រូវប្រគល់ប័ណ្ណកម្មសិទ្ធិដែលបានផ្ទេរសិទ្ធិទៅភាគី “ខ” រួចរាល់នោះ ឲ្យទៅភាគី “ខ” ។
 																		</td>
 																	</tr>
 																<?php
