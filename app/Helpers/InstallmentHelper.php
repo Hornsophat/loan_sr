@@ -245,11 +245,11 @@ class InstallmentHelper{
             $stored_interest += $interest_for_store_each;
             $integer_interest = $interest_tobe_paid - $interest_for_store_each;
             if($index == $loan_term){
-                $principle = $amount;
+                $principle = $amount1;
                 $pay_total = $principle + $integer_interest;
-                $amount = 0;
+                $amount1 = 0;
             }else{
-                $amount -= $principle;
+                $amount1 -= $principle;
             }
             $pay_total =  $interest_per_installment;
 

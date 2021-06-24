@@ -38,7 +38,7 @@
                                 
                                 <div class="row">
                                     <div class="col-md-6"> 
-                                       <div class="form-group">
+                                       <div class="form-group" style="display:none">
                                             {!! Form::label('contract', trans('item.contract')) !!}
                                             <button type="button" class="btn btn-sm btn-warning pull-right" onclick="preview_contarct_sample()" data-toggle="modal" data-target="#contractModal"><i class="fa fa-eye"></i> {{ __('item.preview') }}</button>
                                             {!! Form::select('contract', $contracts,null, array('class' => 'form-control', 'id' => 'contract','required')) !!}

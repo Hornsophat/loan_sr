@@ -205,7 +205,7 @@
                                                                 <a style="cursor: no-drop;"><span class='rounded p-1 badge-warning'>{{ __('item.payment_schedule') }}</span></a>
                                                                 <a style="cursor: no-drop;"><span class='rounded p-1 badge-danger'>{{ __('item.cancel') }}</span></a>
                                                             @else
-                                                                <!-- <a style="cursor: pointer;" onclick="print_schedule({{ $loan_first->id }})" data-toggle="modal" data-target="#scheduleModal"><span class='rounded p-1 badge-primary'>{{ __('item.schedule') }}</span></a> -->
+                                                                {{-- <!-- <a style="cursor: pointer;" onclick="print_schedule({{ $loan_first->id }})" data-toggle="modal" data-target="#scheduleModal"><span class='rounded p-1 badge-primary'>{{ __('item.schedule') }}</span></a> --> --}}
                                                                 <a style="cursor: pointer;" onclick="view_loan_schedule({{ $loan_first }})" data-toggle="modal" data-target="#loanScheduleModal"><span class='rounded p-1 badge-warning'>{{ __('item.payment_schedule') }}</span></a>
                                                                 <a style="cursor: pointer;" onclick="cancel_loan({{ $loan_first->id }})"><span class='rounded p-1 badge-danger'>{{ __('item.cancel') }}</span></a>
                                                             @endif

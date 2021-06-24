@@ -191,7 +191,7 @@
                                                 </div>
                                            </div>
                                            <div class="col-md-12 mb-3"> 
-                                               <div class="input-group">
+                                               <div class="input-group" style="display: none">
                                                     {!! Form::label('penalty_of_late_payment', trans('item.penalty_of_late_payment').' (%)', array('style'=>'width:100%;')) !!}
                                                     {!! Form::text('penalty_of_late_payment', null, array('class' => 'form-control','oninput'=>"this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');")) !!}
                                                     <div class="input-group-append">
